@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="parchment" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>सुख़न &middot; कलाम — उर्दू शायरी, अफ़साने व मुकम्मल लुग़ात</title>
+  <meta name="description" content="उर्दू शायरी, ग़ज़लें, नज़्में एवं कठिन शब्दों के अर्थ का समृद्ध व संवादात्मक डिजिटल संग्रह।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header / Navigation Bar -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="brand-area">
+        <div class="brand-emblem">क</div>
+        <div class="brand-text">
+          <h1 class="brand-title">सुख़न <span>कलाम</span></h1>
+          <p class="brand-subtitle">उर्दू शायरी, कलाम व मुकम्मल लुग़ात संग्रह</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Random Couplet / Ittefaq Button -->
+        <button id="randomPoemBtn" class="action-btn btn-ittefaq" title="कोई भी एक शेर या कलाम पढ़ें">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+          <span class="btn-text">इत्तेफ़ाक़</span>
+        </button>
+
+        <!-- Font Size Controls -->
+        <div class="font-controls" title="फ़ॉन्ट का आकार बदलें">
+          <button class="font-size-btn" data-size="small" title="छोटा अक्षर">अ-</button>
+          <button class="font-size-btn active" data-size="normal" title="सामान्य अक्षर">अ</button>
+          <button class="font-size-btn" data-size="large" title="बड़ा अक्षर">अ+</button>
+        </div>
+
+        <!-- Theme Switcher -->
+        <button id="themeToggleBtn" class="action-btn theme-toggle" title="दिन/रात का रंग रूप बदलें">
+          <span class="theme-icon light-icon" title="शाम/रात थीम">🌙</span>
+          <span class="theme-icon dark-icon" title="काग़ज़/दिन थीम">☀️</span>
+          <span class="theme-name">थीम</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav class="main-nav">
+      <div class="nav-container">
+        <button class="nav-tab active" data-tab="tab-shayari">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          <span>कलाम (Shayari)</span>
+          <span class="badge" id="badgeTotalPoems">28</span>
+        </button>
+        <button class="nav-tab" data-tab="tab-dictionary">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span>लुग़ात (Dictionary)</span>
+          <span class="badge" id="badgeTotalWords">252</span>
+        </button>
+        <button class="nav-tab" data-tab="tab-poets">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>शायर (Poets)</span>
+          <span class="badge" id="badgeTotalPoets">18</span>
+        </button>
+        <button class="nav-tab" data-tab="tab-favorites">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span>पसंदीदा (Saved)</span>
+          <span class="badge badge-fav" id="badgeTotalFavs">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content Areas -->
+  <main class="main-content">
+    
+    <!-- ============================================== -->
+    <!-- TAB 1: SHAYARI / KALAM BROWSER & READER       -->
+    <!-- ============================================== -->
+    <section id="tab-shayari" class="tab-pane active">
+      <!-- Filter and Query Header Panel -->
+      <div class="filter-panel">
+        <div class="search-row">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="shayariSearchInput" class="search-input" placeholder="शेर, शब्द, शायर, भाव या अर्थ खोजें... (e.g. अहमद फ़राज़, चिराग़, ग़ालिब, वफ़ा)">
+            <button id="clearShayariSearch" class="clear-search-btn" title="खोज साफ़ करें">&times;</button>
+          </div>
+          <div class="view-mode-toggle">
+            <button id="viewDetailedBtn" class="view-btn active" title="विस्तृत दृश्य (Full View)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+              <span>विस्तृत</span>
+            </button>
+            <button id="viewCompactBtn" class="view-btn" title="संक्षिप्त दृश्य (Compact View)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+              <span>संक्षिप्त</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Parameters Row -->
+        <div class="filters-row">
+          <!-- Shayar Filter -->
+          <div class="filter-group">
+            <label for="poetSelect" class="filter-label">
+              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              शायर (Poet):
+            </label>
+            <select id="poetSelect" class="filter-select">
+              <option value="all">सभी शायर (All Poets)</option>
+              <!-- Populated dynamically -->
+            </select>
+          </div>
+
+          <!-- Genre Filter -->
+          <div class="filter-group">
+            <label for="genreSelect" class="filter-label">
+              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              विधा (Genre):
+            </label>
+            <select id="genreSelect" class="filter-select">
+              <option value="all">सभी विधाएँ (All Genres)</option>
+              <option value="ग़ज़ल">ग़ज़ल (Ghazal)</option>
+              <option value="नज़्म">नज़्म (Nazm)</option>
+              <option value="कविता">कविता (Kavita)</option>
+              <option value="मुक्तक">मुक्तक (Muktak)</option>
+            </select>
+          </div>
+
+          <!-- Sort Filter -->
+          <div class="filter-group">
+            <label for="sortSelect" class="filter-label">
+              <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+              क्रम (Sort):
+            </label>
+            <select id="sortSelect" class="filter-select">
+              <option value="default">संग्रह क्रम (Original Order)</option>
+              <option value="poet-asc">शायर का नाम (अ से ज्ञ)</option>
+              <option value="words-desc">कठिन शब्द बाहुल्य (Most Tough Words)</option>
+              <option value="lines-desc">पंक्तियों की लम्बाई (Longest First)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Quick Theme / Mood Filter Chips -->
+        <div class="theme-chips-row">
+          <span class="chips-title">मौज़ू / भाव (Themes):</span>
+          <div class="chips-container" id="themeChipsContainer">
+            <!-- Dynamically populated with top themes -->
+          </div>
+        </div>
+
+        <!-- Active Filters Bar -->
+        <div class="active-filters-bar" id="activeFiltersBar" style="display: none;">
+          <span class="active-label">सक्रिय फ़िल्टर:</span>
+          <div class="active-tags" id="activeTagsContainer"></div>
+          <button id="resetAllFiltersBtn" class="reset-filters-btn">सभी फ़िल्टर हटाएं</button>
+        </div>
+
+        <!-- Result Status Bar -->
+        <div class="result-status-bar">
+          <span id="resultsCountText">कुल 28 कलाम</span>
+          <span class="read-hint">💡 शेर के कठिन शब्दों पर क्लिक कर उनका अर्थ जानें</span>
+        </div>
+      </div>
+
+      <!-- Shayari Cards Grid -->
+      <div id="shayariCardsContainer" class="shayari-container">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- TAB 2: DICTIONARY / LUGHAT VIEW                -->
+    <!-- ============================================== -->
+    <section id="tab-dictionary" class="tab-pane">
+      <div class="dictionary-header">
+        <div class="dict-intro">
+          <h2 class="dict-title">लुग़ात-ए-कलाम <span>(उर्दू शब्दकोश)</span></h2>
+          <p class="dict-subtitle">इस संग्रह के कलामों में प्रयुक्त 252 कठिन शब्दों, मुहावरों व शास्त्रीय शब्दावली के सरल हिंदी अर्थ एवं संदर्भ।</p>
+        </div>
+
+        <div class="dict-search-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="dictSearchInput" class="search-input" placeholder="शब्द, उच्चारण या अर्थ खोजें... (e.g. मूनिस-ए-जाँ, शजर, Firaq, स्वर्ग)">
+          <button id="clearDictSearch" class="clear-search-btn" title="खोज साफ़ करें">&times;</button>
+        </div>
+
+        <!-- Alphabet Filter Bar -->
+        <div class="alphabet-filter-container">
+          <div class="alphabet-row" id="devanagariAlphabet">
+            <button class="letter-btn active" data-letter="all">सभी</button>
+            <!-- Hindi letters dynamically generated -->
+          </div>
+        </div>
+
+        <div class="dict-status-bar">
+          <span id="dictCountText">कुल 252 शब्द</span>
+          <span class="dict-hint">शब्द के सामने 'कलाम में देखें' पर क्लिक कर उस शेर को पढ़ें जहाँ यह शब्द आया है।</span>
+        </div>
+      </div>
+
+      <!-- Dictionary Words Grid -->
+      <div class="dictionary-grid" id="dictionaryGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- TAB 3: POETS DIRECTORY                         -->
+    <!-- ============================================== -->
+    <section id="tab-poets" class="tab-pane">
+      <div class="poets-header">
+        <h2 class="section-title">शायर-ए-कलाम <span>(18 अज़ीम शायर)</span></h2>
+        <p class="section-subtitle">इस संग्रह में शामिल महान शायर, उनकी विधाएँ और उनके कलाम। किसी भी शायर पर क्लिक कर उनके कलाम पढ़ें।</p>
+      </div>
+      <div class="poets-grid" id="poetsGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- TAB 4: FAVORITES (SAVED)                       -->
+    <!-- ============================================== -->
+    <section id="tab-favorites" class="tab-pane">
+      <div class="favorites-header">
+        <h2 class="section-title">पसंदीदा कलाम <span>(Saved Poems)</span></h2>
+        <p class="section-subtitle">आपके द्वारा सहेजे गए पसंदीदा शेर व नज़्में।</p>
+      </div>
+      <div id="favoritesContainer" class="shayari-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================== -->
+  <!-- MODAL: ITTEFAQ / RANDOM SHER VIEWER            -->
+  <!-- ============================================== -->
+  <div id="ittefaqModal" class="modal-backdrop">
+    <div class="modal-card">
+      <button id="closeModalBtn" class="close-modal-btn" title="बंद करें">&times;</button>
+      <div class="modal-badge">इत्तेफ़ाक़ &middot; बेतरतीब शेर</div>
+      <div class="modal-content" id="modalContent">
+        <!-- Populated dynamically -->
+      </div>
+      <div class="modal-actions">
+        <button id="nextRandomBtn" class="modal-action-btn secondary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          दूसरा शेर
+        </button>
+        <button id="viewInContextBtn" class="modal-action-btn primary">
+          मुकम्मल कलाम पढ़ें &rarr;
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Difficult Word Tooltip / Popover -->
+  <div id="wordTooltip" class="word-tooltip" style="display: none;">
+    <div class="tooltip-header">
+      <span class="tooltip-word" id="tooltipWord">शब्द</span>
+      <span class="tooltip-trans" id="tooltipTrans">(Transliteration)</span>
+    </div>
+    <div class="tooltip-meaning" id="tooltipMeaning">अर्थ</div>
+    <button id="tooltipViewDictBtn" class="tooltip-dict-btn">लुग़ात में देखें &rarr;</button>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="toast-notification">
+    <span id="toastMessage">कॉपी हो गया!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>सुख़न &middot; कलाम</h3>
+        <p>उर्दू व हिंदी काव्य का संवादात्मक संग्रह। विशुद्ध पठन, अन्वेषण एवं शब्द-ज्ञान के लिए समर्पित।</p>
+      </div>
+      <div class="footer-meta">
+        <p>28 कलाम &bull; 18 शायर &bull; 252 शब्द लुग़ात</p>
+        <p class="footer-copy">&copy; 2026 सुख़न &middot; समस्त कलाम सार्वजनिक साहित्यिक धरोहर हैं।</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

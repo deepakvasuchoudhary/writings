@@ -1,0 +1,1710 @@
+/* ==========================================================================
+   SUKHAN &middot; KALAAM - STYLESHEET
+   Aesthetic typography, Parchment & Midnight themes, responsive design
+   ========================================================================== */
+
+/* --- Design Tokens & Themes --- */
+:root {
+  /* Font Families */
+  --font-heading: 'Cinzel Decorative', 'Rozha One', Georgia, serif;
+  --font-poetry: 'Noto Serif Devanagari', 'Rozha One', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Sizing & Transitions */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Responsive Font Scaling */
+  --base-size: 16px;
+  --poetry-size: 1.18rem;
+  --poetry-line-height: 2.1;
+}
+
+[data-fontsize="small"] {
+  --base-size: 14px;
+  --poetry-size: 1.05rem;
+  --poetry-line-height: 1.95;
+}
+
+[data-fontsize="normal"] {
+  --base-size: 16px;
+  --poetry-size: 1.18rem;
+  --poetry-line-height: 2.1;
+}
+
+[data-fontsize="large"] {
+  --base-size: 18px;
+  --poetry-size: 1.34rem;
+  --poetry-line-height: 2.25;
+}
+
+/* Light / Parchment (काग़ज़) Theme */
+[data-theme="parchment"] {
+  --bg-body: #FAF7F0;
+  --bg-surface: #FFFFFF;
+  --bg-surface-alt: #F4EFE6;
+  --bg-card: #FFFFFF;
+  --bg-subtle: #F1EBE0;
+  --bg-hover: #ECE4D6;
+  --bg-accent-light: #FDF6EE;
+
+  --text-primary: #1C1917;
+  --text-secondary: #44403C;
+  --text-muted: #78716C;
+  --text-faint: #A8A29E;
+
+  --accent-gold: #B45309;
+  --accent-gold-hover: #92400E;
+  --accent-crimson: #991B1B;
+  --accent-ink: #1E293B;
+  --accent-glow: rgba(180, 83, 9, 0.12);
+
+  --border-color: #E7E0D3;
+  --border-light: #EFE8DC;
+  --border-focus: #B45309;
+
+  --shadow-sm: 0 1px 3px rgba(44, 38, 30, 0.05);
+  --shadow-md: 0 4px 14px rgba(44, 38, 30, 0.08);
+  --shadow-lg: 0 12px 28px rgba(44, 38, 30, 0.12);
+
+  --badge-genre-bg: #FEF3C7;
+  --badge-genre-text: #92400E;
+  --quote-watermark: rgba(180, 83, 9, 0.04);
+}
+
+/* Dark / Midnight (शाम-ए-सुख़न) Theme */
+[data-theme="midnight"] {
+  --bg-body: #0E0F14;
+  --bg-surface: #15161E;
+  --bg-surface-alt: #1C1D27;
+  --bg-card: #15161E;
+  --bg-subtle: #1F212D;
+  --bg-hover: #262937;
+  --bg-accent-light: #23201B;
+
+  --text-primary: #F3F1EC;
+  --text-secondary: #D1CFCA;
+  --text-muted: #93918C;
+  --text-faint: #605E5A;
+
+  --accent-gold: #F59E0B;
+  --accent-gold-hover: #FBBF24;
+  --accent-crimson: #F87171;
+  --accent-ink: #CBD5E1;
+  --accent-glow: rgba(245, 158, 11, 0.15);
+
+  --border-color: #272A38;
+  --border-light: #1F212D;
+  --border-focus: #F59E0B;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.5);
+
+  --badge-genre-bg: #2C2417;
+  --badge-genre-text: #FBBF24;
+  --quote-watermark: rgba(245, 158, 11, 0.03);
+}
+
+/* --- Base & Reset --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--base-size);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --- Header Styles --- */
+.site-header {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand-area {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.brand-emblem {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--accent-gold), #78350F);
+  color: #FFF;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-poetry);
+  font-size: 1.6rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px var(--accent-glow);
+  flex-shrink: 0;
+}
+
+.brand-title {
+  font-family: var(--font-poetry);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.brand-title span {
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+.brand-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-ittefaq {
+  background-color: var(--bg-surface-alt);
+  color: var(--accent-gold);
+  border: 1px solid var(--border-color);
+}
+
+.btn-ittefaq:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--accent-gold);
+}
+
+.btn-ittefaq .icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Font Size Controls */
+.font-controls {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 2px;
+}
+
+.font-size-btn {
+  padding: 0.35rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.font-size-btn:hover {
+  color: var(--text-primary);
+}
+
+.font-size-btn.active {
+  background-color: var(--bg-surface);
+  color: var(--accent-gold);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  background-color: var(--bg-surface-alt);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 0.8rem;
+}
+
+.theme-toggle:hover {
+  background-color: var(--bg-hover);
+}
+
+.light-icon {
+  display: none;
+}
+.dark-icon {
+  display: inline;
+}
+
+[data-theme="parchment"] .light-icon {
+  display: inline;
+}
+[data-theme="parchment"] .dark-icon {
+  display: none;
+}
+
+/* Navigation Tabs */
+.main-nav {
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-light);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav-container::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.1rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+.nav-tab:hover {
+  color: var(--text-primary);
+}
+
+.nav-tab.active {
+  color: var(--accent-gold);
+  border-bottom-color: var(--accent-gold);
+}
+
+.tab-icon {
+  width: 17px;
+  height: 17px;
+}
+
+.badge {
+  background-color: var(--bg-surface-alt);
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+}
+
+.nav-tab.active .badge {
+  background-color: var(--badge-genre-bg);
+  color: var(--badge-genre-text);
+}
+
+.badge-fav {
+  background-color: var(--accent-crimson);
+  color: #FFF;
+}
+
+/* --- Main Content Layout --- */
+.main-content {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem 4rem;
+}
+
+.tab-pane {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Filter Panel --- */
+.filter-panel {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.search-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.1rem;
+}
+
+.search-input-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 2.6rem 0.75rem 2.6rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface-alt);
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  background-color: var(--bg-surface);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  padding: 0.2rem 0.4rem;
+  line-height: 1;
+  display: none;
+}
+
+.clear-search-btn:hover {
+  color: var(--text-primary);
+}
+
+.view-mode-toggle {
+  display: flex;
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 2px;
+}
+
+.view-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.view-btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.view-btn.active {
+  background-color: var(--bg-surface);
+  color: var(--accent-gold);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Filters Row */
+.filters-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.filter-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--accent-gold);
+}
+
+.filter-select {
+  padding: 0.6rem 0.85rem;
+  font-size: 0.88rem;
+  font-family: inherit;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface-alt);
+  color: var(--text-primary);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+}
+
+/* Theme Chips */
+.theme-chips-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.chips-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.theme-chip {
+  padding: 0.28rem 0.7rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 500;
+  background-color: var(--bg-surface-alt);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.theme-chip:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.theme-chip.active {
+  background-color: var(--accent-gold);
+  color: #FFF;
+  border-color: var(--accent-gold);
+}
+
+/* Active Filters */
+.active-filters-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border-color);
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.active-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.active-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.filter-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  background-color: var(--badge-genre-bg);
+  color: var(--badge-genre-text);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.filter-tag-remove {
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.reset-filters-btn {
+  margin-left: auto;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-crimson);
+  text-decoration: underline;
+  padding: 0.2rem 0.4rem;
+}
+
+/* Status Bar */
+.result-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.read-hint {
+  color: var(--accent-gold);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   SHAYARI CARD - STRICT 3-PART STRUCTURE
+   Part 1: About Shayar & Shayari
+   Part 2: मुकम्मल पंक्तियाँ / Poetry Itself
+   Part 3: कठिन शब्दों के अर्थ / Tough Words Meanings
+   ========================================================================== */
+.shayari-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.shayari-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+}
+
+.shayari-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-gold);
+}
+
+.shayari-card.highlighted {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px var(--accent-glow), var(--shadow-lg);
+  animation: pulseHighlight 1.5s ease;
+}
+
+@keyframes pulseHighlight {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.01); }
+  100% { transform: scale(1); }
+}
+
+/* --- PART 1: ABOUT SHAYARI & SHAYAR --- */
+.card-part-about {
+  padding: 1.4rem 1.6rem 1.2rem;
+  background-color: var(--bg-surface-alt);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.about-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.poet-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.poet-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--accent-gold), #78350F);
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-poetry);
+  font-size: 1.3rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px var(--accent-glow);
+}
+
+.poet-meta h3 {
+  font-family: var(--font-poetry);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.poet-meta span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.card-meta-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.genre-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  background-color: var(--badge-genre-bg);
+  color: var(--badge-genre-text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.poem-num-badge {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.about-text-content {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-poetry);
+}
+
+.about-genre-detail {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  background-color: var(--bg-surface);
+  border-left: 3px solid var(--accent-gold);
+  padding: 0.5rem 0.85rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 0.75rem;
+}
+
+.about-genre-detail strong {
+  color: var(--text-secondary);
+}
+
+.card-theme-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.card-tag {
+  font-size: 0.74rem;
+  padding: 0.18rem 0.6rem;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+/* --- PART 2: THE POETRY ITSELF (मुकम्मल पंक्तियाँ) --- */
+.card-part-verses {
+  padding: 2rem 2.25rem 1.75rem;
+  position: relative;
+  background-color: var(--bg-card);
+}
+
+.verses-watermark {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--quote-watermark);
+  user-select: none;
+  pointer-events: none;
+}
+
+.verses-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.verses-heading {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-gold);
+}
+
+.verses-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.verse-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-md);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-surface-alt);
+  transition: var(--transition);
+}
+
+.verse-action-btn:hover {
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
+}
+
+.verse-action-btn.fav-btn.active {
+  color: var(--accent-crimson);
+  border-color: var(--accent-crimson);
+  background-color: var(--bg-surface);
+}
+
+.verse-action-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Couplets / Ash'aar Styling */
+.poetry-body {
+  font-family: var(--font-poetry);
+  font-size: var(--poetry-size);
+  line-height: var(--poetry-line-height);
+  color: var(--text-primary);
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.couplet {
+  margin-bottom: 1.4rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.couplet:hover {
+  background-color: var(--bg-accent-light);
+}
+
+.couplet:last-child {
+  margin-bottom: 0;
+}
+
+.misra {
+  display: block;
+  letter-spacing: 0.01em;
+}
+
+.misra-1 {
+  font-weight: 500;
+}
+
+.misra-2 {
+  font-weight: 500;
+}
+
+.stanza-line {
+  display: block;
+}
+
+/* Interactive Glossary Terms in Poetry */
+.glossary-term {
+  border-bottom: 2px dotted var(--accent-gold);
+  color: var(--text-primary);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 2px;
+  border-radius: 2px;
+  transition: var(--transition);
+  position: relative;
+}
+
+.glossary-term:hover {
+  background-color: var(--accent-glow);
+  color: var(--accent-gold);
+  border-bottom-style: solid;
+}
+
+/* --- PART 3: MEANING OF TOUGH WORDS (कठिन शब्दों के अर्थ) --- */
+.card-part-words {
+  padding: 1.4rem 1.6rem 1.6rem;
+  background-color: var(--bg-surface-alt);
+  border-top: 1px solid var(--border-color);
+}
+
+.words-heading-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+}
+
+.words-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-poetry);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.words-heading svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent-gold);
+}
+
+.words-count-tag {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  background-color: var(--bg-surface);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+}
+
+.words-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.85rem;
+}
+
+.word-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.word-card:hover {
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.word-card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.word-term {
+  font-family: var(--font-poetry);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.word-trans {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.word-meaning {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.word-dict-link {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  align-self: flex-start;
+  margin-top: 0.25rem;
+  transition: var(--transition);
+}
+
+.word-dict-link:hover {
+  color: var(--accent-gold-hover);
+  text-decoration: underline;
+}
+
+/* Compact View Mode Adjustments */
+.compact-view .card-part-about {
+  padding: 0.9rem 1.25rem;
+}
+
+.compact-view .about-text-content,
+.compact-view .about-genre-detail {
+  display: none;
+}
+
+.compact-view .shayari-card.expanded .about-text-content,
+.compact-view .shayari-card.expanded .about-genre-detail {
+  display: block;
+}
+
+.compact-toggle-btn {
+  display: none;
+}
+
+.compact-view .compact-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   TAB 2: DICTIONARY / LUGHAT STYLES
+   ========================================================================== */
+.dictionary-header {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.dict-intro {
+  margin-bottom: 1.25rem;
+}
+
+.dict-title {
+  font-family: var(--font-poetry);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.dict-title span {
+  color: var(--accent-gold);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.dict-subtitle {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.dict-search-wrapper {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
+/* Alphabet Filter */
+.alphabet-filter-container {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.alphabet-row {
+  display: flex;
+  gap: 0.35rem;
+  min-width: max-content;
+}
+
+.letter-btn {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 0.4rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  background-color: var(--bg-surface-alt);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.letter-btn:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.letter-btn.active {
+  background-color: var(--accent-gold);
+  color: #FFF;
+  border-color: var(--accent-gold);
+}
+
+.dict-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.dict-hint {
+  color: var(--text-muted);
+}
+
+/* Dictionary Grid */
+.dictionary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.dict-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.4rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.85rem;
+  transition: var(--transition);
+}
+
+.dict-card:hover {
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.dict-card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 0.5rem;
+}
+
+.dict-word {
+  font-family: var(--font-poetry);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.dict-trans {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.dict-meaning {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.dict-occurrences {
+  background-color: var(--bg-surface-alt);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.85rem;
+  border-left: 2px solid var(--accent-gold);
+}
+
+.occurrences-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.occurrence-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  padding: 0.2rem 0;
+}
+
+.occurrence-link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.occurrence-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   TAB 3: POETS DIRECTORY
+   ========================================================================== */
+.poets-header, .favorites-header {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-family: var(--font-poetry);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.section-title span {
+  font-size: 1.25rem;
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.poets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.poet-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.poet-card:hover {
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.poet-card-main {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.poet-card-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--accent-gold), #78350F);
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-poetry);
+  font-size: 1.5rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.poet-card-name h3 {
+  font-family: var(--font-poetry);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.poet-card-name p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.poet-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.poet-count-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.poet-view-action {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background-color: var(--bg-card);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-lg);
+}
+
+.empty-state-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.empty-state-title {
+  font-family: var(--font-poetry);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.empty-state-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 460px;
+  margin: 0 auto 1.25rem;
+}
+
+/* ==========================================================================
+   MODAL & TOOLTIP STYLES
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  max-width: 620px;
+  width: 100%;
+  padding: 2.25rem;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-backdrop.open .modal-card {
+  transform: scale(1);
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 1.6rem;
+  color: var(--text-muted);
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+}
+
+.close-modal-btn:hover {
+  color: var(--text-primary);
+}
+
+.modal-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-gold);
+  margin-bottom: 1.25rem;
+}
+
+.modal-content {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.modal-couplet {
+  font-family: var(--font-poetry);
+  font-size: 1.35rem;
+  line-height: 2.1;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.modal-poet-meta {
+  font-family: var(--font-poetry);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+}
+
+.modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.modal-action-btn {
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: var(--transition);
+}
+
+.modal-action-btn.primary {
+  background-color: var(--accent-gold);
+  color: #FFF;
+}
+
+.modal-action-btn.primary:hover {
+  background-color: var(--accent-gold-hover);
+}
+
+.modal-action-btn.secondary {
+  background-color: var(--bg-surface-alt);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.modal-action-btn.secondary:hover {
+  background-color: var(--bg-hover);
+}
+
+.modal-action-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Word Tooltip */
+.word-tooltip {
+  position: fixed;
+  z-index: 90;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--accent-gold);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  max-width: 320px;
+  box-shadow: var(--shadow-lg);
+  pointer-events: auto;
+  animation: fadeIn 0.18s ease;
+}
+
+.tooltip-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.tooltip-word {
+  font-family: var(--font-poetry);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.tooltip-trans {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.tooltip-meaning {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.55rem;
+}
+
+.tooltip-dict-btn {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  cursor: pointer;
+}
+
+.tooltip-dict-btn:hover {
+  text-decoration: underline;
+}
+
+/* Toast Notification */
+.toast-notification {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--text-primary);
+  color: var(--bg-body);
+  padding: 0.7rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  z-index: 120;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: var(--transition);
+  pointer-events: none;
+}
+
+.toast-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Footer --- */
+.site-footer {
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-color);
+  padding: 2.25rem 1.5rem;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-brand h3 {
+  font-family: var(--font-poetry);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.footer-brand p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  max-width: 480px;
+}
+
+.footer-meta {
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  color: var(--text-faint);
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0.75rem 1rem;
+  }
+  
+  .brand-title {
+    font-size: 1.3rem;
+  }
+  
+  .brand-subtitle {
+    display: none;
+  }
+
+  .btn-ittefaq .btn-text,
+  .theme-name {
+    display: none;
+  }
+  
+  .main-content {
+    padding: 1.25rem 1rem 3rem;
+  }
+  
+  .filter-panel {
+    padding: 1rem;
+  }
+  
+  .search-row {
+    flex-direction: column;
+  }
+
+  .view-mode-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .card-part-about {
+    padding: 1.1rem 1.2rem;
+  }
+  
+  .card-part-verses {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .verses-watermark {
+    font-size: 3.5rem;
+    right: 1rem;
+  }
+  
+  .card-part-words {
+    padding: 1.1rem 1.2rem;
+  }
+  
+  .words-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-meta {
+    text-align: center;
+  }
+}
