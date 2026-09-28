@@ -9,8 +9,8 @@
   <link rel="apple-touch-icon" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=5.0">
 </head>
 <body>
   <!-- Apple Subtle Ambient Spotlight -->
@@ -334,8 +334,33 @@
     </div>
   </footer>
 
+  <!-- Floating Apple Music / Dynamic Island Audio Bar -->
+  <div id="appleAudioBar" class="apple-audio-bar" style="display: none;">
+    <div class="audio-bar-inner">
+      <div class="audio-bar-track">
+        <div class="audio-bar-avatar" id="audioBarAvatar">श</div>
+        <div class="audio-bar-info">
+          <span class="audio-bar-title" id="audioBarTitle">कलाम सस्वर पाठ</span>
+          <span class="audio-bar-poet" id="audioBarPoet">शायर</span>
+        </div>
+      </div>
+      <div class="audio-bar-controls">
+        <div class="equalizer-waves">
+          <span class="eq-bar bar-1"></span>
+          <span class="eq-bar bar-2"></span>
+          <span class="eq-bar bar-3"></span>
+          <span class="eq-bar bar-4"></span>
+        </div>
+        <button id="audioBarPlayPauseBtn" class="audio-bar-btn play-pause-btn" title="रोकें / चलाएं">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+        </button>
+        <button id="audioBarCloseBtn" class="audio-bar-btn close-btn" title="बंद करें">&times;</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <script src="data.js?v=5.0"></script>
+  <script src="app.js?v=5.0"></script>
 </body>
 </html>

@@ -112,8 +112,8 @@
   }
 
   function loadPreferences() {
-    // Theme
-    const savedTheme = localStorage.getItem('sukhan_theme') || 'midnight';
+    // Theme - Default to Space Black Apple Pro look
+    const savedTheme = localStorage.getItem('sukhan_theme_v5') || 'midnight';
     state.theme = savedTheme;
     document.documentElement.setAttribute('data-theme', savedTheme);
 
@@ -777,6 +777,18 @@
     if (btnSpan) btnSpan.textContent = 'रोकें';
     showToast('पाठ सुना जा रहा है... 🎙️');
 
+    // Show persistent Apple Music Audio Bar at bottom
+    const audioBar = document.getElementById('appleAudioBar');
+    if (audioBar) {
+      audioBar.style.display = 'flex';
+      const titleEl = document.getElementById('audioBarTitle');
+      const poetEl = document.getElementById('audioBarPoet');
+      const avatarEl = document.getElementById('audioBarAvatar');
+      if (titleEl) titleEl.textContent = poem.title || `कलाम #${poem.id}`;
+      if (poetEl) poetEl.textContent = poem.poet.name_hi;
+      if (avatarEl) avatarEl.textContent = poem.poet.name_hi[0] || 'श';
+    }
+
     const card = document.getElementById(`poem-${poemId}`);
     const coupletElems = card ? card.querySelectorAll('.couplet') : [];
 
@@ -829,6 +841,8 @@
       }
       activeAudioPoemId = null;
     }
+    const audioBar = document.getElementById('appleAudioBar');
+    if (audioBar) audioBar.style.display = 'none';
   }
 
   // --- Tooltip Logic ---
@@ -938,9 +952,34 @@
       const newTheme = state.theme === 'parchment' ? 'midnight' : 'parchment';
       state.theme = newTheme;
       document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('sukhan_theme', newTheme);
-      showToast(newTheme === 'parchment' ? 'काग़ज़ थीम सक्रिय ☀️' : 'शाम-ए-सुख़न थीम सक्रिय 🌙');
+      localStorage.setItem('sukhan_theme_v5', newTheme);
+      showToast(newTheme === 'parchment' ? 'Studio Silver सक्रिय ☀️' : 'Space Black सक्रिय 🌙');
     });
+
+    // Apple Audio Bar Controls
+    const audioBarClose = document.getElementById('audioBarCloseBtn');
+    if (audioBarClose) {
+      audioBarClose.addEventListener('click', () => {
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        stopPoemAudioUI();
+        showToast('सस्वर पाठ बंद किया गया');
+      });
+    }
+
+    const audioBarPlayPause = document.getElementById('audioBarPlayPauseBtn');
+    if (audioBarPlayPause) {
+      audioBarPlayPause.addEventListener('click', () => {
+        if ('speechSynthesis' in window && window.speechSynthesis.speaking) {
+          if (window.speechSynthesis.paused) {
+            window.speechSynthesis.resume();
+            showToast('सस्वर पाठ जारी ▶');
+          } else {
+            window.speechSynthesis.pause();
+            showToast('सस्वर पाठ विराम ⏸');
+          }
+        }
+      });
+    }
 
     // Font Size Switcher
     elements.fontSizeBtns.forEach(btn => {
