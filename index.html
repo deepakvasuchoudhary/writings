@@ -9,8 +9,8 @@
   <link rel="apple-touch-icon" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=5.0">
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=6.0">
 </head>
 <body>
   <!-- Apple Subtle Ambient Spotlight -->
@@ -243,9 +243,18 @@
           </div>
         </div>
 
+        <!-- Active Filter Alert Banner -->
+        <div id="dictFilterAlert" class="dict-filter-alert" style="display: none;">
+          <div class="filter-alert-content">
+            <span class="filter-alert-icon">🔍</span>
+            <span id="dictFilterAlertText">फ़िल्टर सक्रिय</span>
+          </div>
+          <button id="dictResetFilterBtn" class="dict-reset-filter-btn" title="सभी शब्द देखें">✕ सभी 252 शब्द देखें</button>
+        </div>
+
         <div class="dict-status-bar">
-          <span id="dictCountText">कुल 252 शब्द</span>
-          <span class="dict-hint">शब्द के सामने 'कलाम में देखें' पर क्लिक कर उस शेर को पढ़ें जहाँ यह शब्द आया है।</span>
+          <span id="dictCountText">कुल 252 शब्द (संपूर्ण लुग़ात)</span>
+          <span class="dict-hint">किसी भी अक्षर या खोज से फ़िल्टर करें अथवा सभी 252 शब्द पढ़ें।</span>
         </div>
       </div>
 
@@ -360,7 +369,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data.js?v=5.0"></script>
-  <script src="app.js?v=5.0"></script>
+  <script src="data.js?v=6.0"></script>
+  <script src="app.js?v=6.0"></script>
 </body>
 </html>

@@ -1,18 +1,18 @@
 /* ==========================================================================
-   SUKHAN · KALAAM — APPLE PRO SPATIAL DESIGN SYSTEM
-   Modern Sans-Serif Typography, Apple Bento Grid & Deep Obsidian Glass
-   Inspired by Apple Music, visionOS, and Apple Developer Design
+   SUKHAN · KALAAM — LUXURY POETRY STUDIO & ARCHIVE
+   Contemporary Indian Typography (Anek Devanagari & Outfit),
+   Luminous Poetic Chromatic Contrast & visionOS Spatial Glass
    ========================================================================== */
 
-/* --- Modern Apple Foundation Tokens --- */
+/* --- Modern Global Foundation Tokens --- */
 :root {
-  /* Ultra-Modern Sans-Serif Font Stacks (Zero Classical Antique Serifs) */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Plus Jakarta Sans", sans-serif;
-  --font-poetry: 'Noto Sans Devanagari', 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  /* Modern High-End Font Stacks */
+  --font-poetry: 'Anek Devanagari', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  --font-heading: 'Outfit', 'Anek Devanagari', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
 
-  /* Apple Squircle Radii */
+  /* Apple Precision Radii */
   --radius-xs: 8px;
   --radius-sm: 12px;
   --radius-md: 16px;
@@ -20,135 +20,205 @@
   --radius-xl: 28px;
   --radius-full: 9999px;
 
-  /* Apple Spring Physics */
-  --apple-spring: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Physics & Animations */
+  --apple-spring: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   --apple-spring-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   --transition: var(--apple-spring);
 
-  /* Typography Scales */
+  /* Typography Sizes */
   --base-size: 16px;
-  --poetry-size: 1.35rem;
-  --poetry-line-height: 2.2;
+  --poetry-size: 1.38rem;
+  --poetry-line-height: 2.15;
 }
 
 [data-fontsize="small"] {
   --base-size: 14px;
-  --poetry-size: 1.18rem;
-  --poetry-line-height: 2.05;
+  --poetry-size: 1.22rem;
+  --poetry-line-height: 2.0;
 }
 
 [data-fontsize="normal"] {
   --base-size: 16px;
-  --poetry-size: 1.35rem;
-  --poetry-line-height: 2.2;
+  --poetry-size: 1.38rem;
+  --poetry-line-height: 2.15;
 }
 
 [data-fontsize="large"] {
   --base-size: 18px;
-  --poetry-size: 1.55rem;
-  --poetry-line-height: 2.35;
+  --poetry-size: 1.58rem;
+  --poetry-line-height: 2.3;
 }
 
 /* ==========================================================================
-   THEMES: APPLE SPACE BLACK & ELECTRIC BLUE (DARK) & STUDIO SILVER (LIGHT)
+   THEMES: 3 DISTINCT LUXURY CHROMATIC PALETTES
    ========================================================================== */
 
-/* Dark Theme: Apple Space Black & Electric Blue (Default Pro Mode) */
+/* THEME 1: Obsidian Aurora (Default Pro Dark) */
 [data-theme="midnight"] {
-  --bg-canvas: #050609;
-  --bg-surface: rgba(18, 19, 26, 0.85);
-  --bg-surface-elevated: #161822;
-  --bg-surface-subtle: rgba(255, 255, 255, 0.035);
+  --bg-canvas: #06070D;
+  --bg-surface: rgba(18, 20, 32, 0.82);
+  --bg-surface-elevated: #151828;
+  --bg-surface-subtle: rgba(255, 255, 255, 0.04);
   --bg-surface-hover: rgba(255, 255, 255, 0.08);
-  --bg-card: rgba(16, 17, 24, 0.88);
-  --bg-card-header: rgba(22, 24, 34, 0.95);
+  --bg-card: linear-gradient(165deg, rgba(20, 23, 38, 0.88) 0%, rgba(10, 11, 20, 0.94) 100%);
+  --bg-card-header: rgba(18, 21, 35, 0.95);
   --bg-input: rgba(255, 255, 255, 0.06);
   --bg-track: rgba(255, 255, 255, 0.08);
 
-  /* Apple Precision Hairlines */
+  /* Hairlines & Glass Borders */
   --border-hairline: rgba(255, 255, 255, 0.09);
   --border-subtle: rgba(255, 255, 255, 0.16);
-  --border-hover: rgba(10, 132, 255, 0.5);
-  --border-focus: #0A84FF;
+  --border-hover: rgba(245, 158, 11, 0.5);
+  --border-focus: #F59E0B;
 
   /* Shadows */
-  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.6);
-  --shadow-md: 0 12px 36px -6px rgba(0, 0, 0, 0.8);
-  --shadow-lg: 0 24px 64px -10px rgba(0, 0, 0, 0.9);
-  --shadow-neon: 0 16px 48px -10px rgba(10, 132, 255, 0.28), 0 0 0 1px rgba(10, 132, 255, 0.5);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 16px 40px -8px rgba(0, 0, 0, 0.85);
+  --shadow-lg: 0 28px 70px -12px rgba(0, 0, 0, 0.95);
+  --shadow-neon: 0 20px 50px -10px rgba(245, 158, 11, 0.25), 0 0 0 1px rgba(245, 158, 11, 0.4);
 
-  /* High-Contrast Modern Typography */
+  /* Typographic Harmony & Color Symphony */
   --text-primary: #FFFFFF;
-  --text-secondary: #9FA4B2;
-  --text-muted: #646877;
-  --text-faint: #3F4350;
+  --text-secondary: #9DA3B4;
+  --text-muted: #64687A;
+  --text-faint: #3B3E4C;
 
-  /* Vibrant Apple Accents */
-  --apple-accent: #0A84FF;
-  --apple-accent-cyan: #00F2FE;
-  --apple-accent-gradient: linear-gradient(135deg, #00F2FE 0%, #0A84FF 100%);
-  --apple-amber: #FF9F0A;
-  --apple-crimson: #FF375F;
-  --apple-purple: #BF5AF2;
-  --apple-glow: rgba(10, 132, 255, 0.2);
+  /* Poetic Verse Chromatic Contrast */
+  --misra1-color: #FFF6E5;       /* Sunlit Champagne Gold */
+  --misra1-glow: rgba(255, 246, 229, 0.25);
+  --misra2-color: #BAE6FD;       /* Celestial Cyan Opal */
+  --misra2-glow: rgba(186, 230, 253, 0.2);
 
-  /* Glass Materials */
-  --nav-bg: rgba(5, 6, 9, 0.82);
-  --badge-genre-bg: rgba(10, 132, 255, 0.15);
-  --badge-genre-text: #64D2FF;
-  --quote-watermark: rgba(255, 255, 255, 0.02);
+  /* Difficult Word Capsules */
+  --glossary-bg: rgba(45, 212, 191, 0.14);
+  --glossary-text: #2DD4BF;
+  --glossary-border: rgba(45, 212, 191, 0.4);
+  --glossary-glow: rgba(45, 212, 191, 0.25);
 
-  /* Spotlight Gradient */
-  --spotlight-gradient: radial-gradient(circle at 50% -10%, rgba(10, 132, 255, 0.18) 0%, rgba(5, 6, 9, 1) 70%);
+  /* Accents */
+  --apple-accent: #F59E0B;
+  --apple-accent-cyan: #06B6D4;
+  --apple-accent-gradient: linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #EC4899 100%);
+  --hero-gradient: linear-gradient(135deg, #FFFFFF 0%, #FDE68A 45%, #67E8F9 100%);
+  --apple-amber: #F59E0B;
+  --apple-crimson: #F43F5E;
+  --apple-purple: #A855F7;
+  --apple-glow: rgba(245, 158, 11, 0.2);
+
+  /* Materials */
+  --nav-bg: rgba(6, 7, 13, 0.85);
+  --badge-genre-bg: rgba(245, 158, 11, 0.15);
+  --badge-genre-text: #FBBF24;
+  --quote-watermark: rgba(255, 255, 255, 0.025);
+  --spotlight-gradient: radial-gradient(circle at 50% -10%, rgba(245, 158, 11, 0.16) 0%, rgba(6, 7, 13, 1) 75%);
 }
 
-/* Light Theme: Apple Studio Silver & Electric Indigo */
+/* THEME 2: Imperial Velvet (Deep Wine & Royal Gold) */
+[data-theme="velvet"] {
+  --bg-canvas: #0A050E;
+  --bg-surface: rgba(26, 14, 34, 0.85);
+  --bg-surface-elevated: #22122C;
+  --bg-surface-subtle: rgba(255, 255, 255, 0.04);
+  --bg-surface-hover: rgba(255, 255, 255, 0.08);
+  --bg-card: linear-gradient(165deg, rgba(32, 16, 42, 0.9) 0%, rgba(14, 7, 19, 0.96) 100%);
+  --bg-card-header: rgba(28, 14, 38, 0.95);
+  --bg-input: rgba(255, 255, 255, 0.06);
+  --bg-track: rgba(255, 255, 255, 0.08);
+
+  --border-hairline: rgba(255, 255, 255, 0.1);
+  --border-subtle: rgba(255, 255, 255, 0.18);
+  --border-hover: rgba(244, 63, 94, 0.5);
+  --border-focus: #F43F5E;
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.65);
+  --shadow-md: 0 16px 40px -8px rgba(0, 0, 0, 0.9);
+  --shadow-lg: 0 28px 70px -12px rgba(0, 0, 0, 0.95);
+  --shadow-neon: 0 20px 50px -10px rgba(244, 63, 94, 0.3), 0 0 0 1px rgba(244, 63, 94, 0.4);
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #C4B5CD;
+  --text-muted: #887494;
+  --text-faint: #4E3C57;
+
+  /* Poetic Verse Chromatic Contrast */
+  --misra1-color: #FDE68A;       /* Imperial Royal Gold */
+  --misra1-glow: rgba(253, 230, 138, 0.25);
+  --misra2-color: #FBCFE8;       /* Luminous Rose Quartz */
+  --misra2-glow: rgba(251, 207, 232, 0.2);
+
+  --glossary-bg: rgba(244, 63, 94, 0.15);
+  --glossary-text: #FB7185;
+  --glossary-border: rgba(244, 63, 94, 0.4);
+  --glossary-glow: rgba(244, 63, 94, 0.25);
+
+  --apple-accent: #F43F5E;
+  --apple-accent-cyan: #F472B6;
+  --apple-accent-gradient: linear-gradient(135deg, #F43F5E 0%, #FB7185 50%, #F59E0B 100%);
+  --hero-gradient: linear-gradient(135deg, #FFFFFF 0%, #FDE68A 50%, #FB7185 100%);
+  --apple-amber: #F59E0B;
+  --apple-crimson: #F43F5E;
+  --apple-purple: #C084FC;
+  --apple-glow: rgba(244, 63, 94, 0.2);
+
+  --nav-bg: rgba(10, 5, 14, 0.86);
+  --badge-genre-bg: rgba(244, 63, 94, 0.16);
+  --badge-genre-text: #FDA4AF;
+  --quote-watermark: rgba(255, 255, 255, 0.03);
+  --spotlight-gradient: radial-gradient(circle at 50% -10%, rgba(244, 63, 94, 0.18) 0%, rgba(10, 5, 14, 1) 75%);
+}
+
+/* THEME 3: Studio Pearl (Apple Pure Light) */
 [data-theme="parchment"] {
-  --bg-canvas: #F4F5F8;
+  --bg-canvas: #F5F7FA;
   --bg-surface: rgba(255, 255, 255, 0.88);
   --bg-surface-elevated: #FFFFFF;
-  --bg-surface-subtle: #F0F2F6;
-  --bg-surface-hover: #E7EAF0;
+  --bg-surface-subtle: #EEF2F6;
+  --bg-surface-hover: #E2E8F0;
   --bg-card: #FFFFFF;
-  --bg-card-header: #F9FAFC;
+  --bg-card-header: #FAFCFE;
   --bg-input: #FFFFFF;
   --bg-track: rgba(0, 0, 0, 0.06);
 
-  /* Hairlines */
-  --border-hairline: rgba(0, 0, 0, 0.08);
-  --border-subtle: rgba(0, 0, 0, 0.14);
+  --border-hairline: rgba(0, 0, 0, 0.09);
+  --border-subtle: rgba(0, 0, 0, 0.15);
   --border-hover: rgba(0, 113, 227, 0.4);
   --border-focus: #0071E3;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 20px 48px -8px rgba(0, 0, 0, 0.12);
-  --shadow-neon: 0 14px 40px -8px rgba(0, 113, 227, 0.2), 0 0 0 1px rgba(0, 113, 227, 0.4);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 12px 32px -4px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 24px 56px -8px rgba(0, 0, 0, 0.14);
+  --shadow-neon: 0 16px 44px -8px rgba(0, 113, 227, 0.25), 0 0 0 1px rgba(0, 113, 227, 0.35);
 
-  /* High-Contrast Modern Typography */
-  --text-primary: #111216;
-  --text-secondary: #484C56;
-  --text-muted: #828795;
-  --text-faint: #B0B5C2;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #7E8B9F;
+  --text-faint: #CBD5E1;
 
-  /* Vibrant Apple Accents */
+  /* Poetic Verse Chromatic Contrast */
+  --misra1-color: #0F172A;       /* Carbon Charcoal */
+  --misra1-glow: transparent;
+  --misra2-color: #1D4ED8;       /* Royal Cobalt Blue */
+  --misra2-glow: transparent;
+
+  --glossary-bg: rgba(37, 99, 235, 0.08);
+  --glossary-text: #1D4ED8;
+  --glossary-border: rgba(37, 99, 235, 0.3);
+  --glossary-glow: rgba(37, 99, 235, 0.15);
+
   --apple-accent: #0071E3;
   --apple-accent-cyan: #0284C7;
   --apple-accent-gradient: linear-gradient(135deg, #0284C7 0%, #0071E3 100%);
+  --hero-gradient: linear-gradient(135deg, #0F172A 0%, #1E40AF 60%, #0284C7 100%);
   --apple-amber: #D97706;
   --apple-crimson: #E11D48;
   --apple-purple: #7C3AED;
   --apple-glow: rgba(0, 113, 227, 0.15);
 
-  /* Glass Materials */
-  --nav-bg: rgba(244, 245, 248, 0.85);
+  --nav-bg: rgba(245, 247, 250, 0.88);
   --badge-genre-bg: rgba(0, 113, 227, 0.1);
   --badge-genre-text: #0071E3;
-  --quote-watermark: rgba(0, 0, 0, 0.03);
-
-  /* Spotlight Gradient */
-  --spotlight-gradient: radial-gradient(circle at 50% -10%, rgba(0, 113, 227, 0.08) 0%, rgba(244, 245, 248, 1) 70%);
+  --quote-watermark: rgba(0, 0, 0, 0.035);
+  --spotlight-gradient: radial-gradient(circle at 50% -10%, rgba(0, 113, 227, 0.08) 0%, rgba(245, 247, 250, 1) 75%);
 }
 
 /* ==========================================================================
@@ -158,161 +228,138 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
   font-size: var(--base-size);
   scroll-behavior: smooth;
-  background-color: var(--bg-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
+  font-family: var(--font-sans);
   background-color: var(--bg-canvas);
   color: var(--text-primary);
-  font-family: var(--font-sans);
-  line-height: 1.5;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  line-height: 1.6;
   position: relative;
   overflow-x: hidden;
-  letter-spacing: -0.015em;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-  outline: none;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-button:active {
-  transform: scale(0.975);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* Directional Overhead Spotlight */
+/* Ambient Studio Spotlight Glow */
 .apple-ambient-spotlight {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 65vh;
+  height: 650px;
   background: var(--spotlight-gradient);
   pointer-events: none;
   z-index: 0;
+  opacity: 0.95;
+  transition: background 0.4s ease;
 }
 
 /* ==========================================================================
-   APPLE PRO GLOBAL NAVIGATION (52px STICKY BAR)
+   SITE HEADER & NAVIGATION
    ========================================================================== */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 100;
-  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
   background: var(--nav-bg);
-  backdrop-filter: saturate(180%) blur(24px);
-  -webkit-backdrop-filter: saturate(180%) blur(24px);
   border-bottom: 1px solid var(--border-hairline);
   transition: var(--apple-spring);
 }
 
 .header-container {
-  max-width: 1240px;
+  max-width: 1380px;
   margin: 0 auto;
-  padding: 0.65rem 1.5rem;
+  padding: 0.85rem 1.75rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  height: 52px;
 }
 
-/* Brand Emblem & Logo */
 .brand-area {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.95rem;
+  text-decoration: none;
 }
 
 .brand-emblem {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  transition: var(--apple-spring);
 }
 
 .brand-emblem-icon {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  display: block;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  filter: drop-shadow(0 4px 12px var(--apple-glow));
+  transition: var(--apple-spring);
 }
 
-.brand-emblem:hover {
-  transform: scale(1.08) rotate(4deg);
-}
-
-.brand-text {
-  display: flex;
-  align-items: baseline;
-  gap: 0.35rem;
+.brand-emblem:hover .brand-emblem-icon {
+  transform: scale(1.06) rotate(2deg);
 }
 
 .brand-title {
-  font-family: var(--font-sans);
-  font-size: 1.18rem;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--text-primary);
-  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  line-height: 1.15;
 }
 
 .brand-title span {
   background: var(--apple-accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 600;
+  font-family: var(--font-poetry);
+  font-weight: 700;
 }
 
 .brand-subtitle {
-  display: none;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
-/* Header Action Buttons */
+/* Action Controls (Ittefaq, Font Size, Theme) */
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.75rem;
 }
 
 .action-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.45rem 0.9rem;
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
   border-radius: var(--radius-full);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  background: var(--bg-surface-subtle);
   border: 1px solid var(--border-hairline);
+  background: var(--bg-surface-subtle);
+  color: var(--text-primary);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
   transition: var(--apple-spring);
+  backdrop-filter: blur(12px);
 }
 
 .action-btn:hover {
@@ -322,9 +369,9 @@ a {
 }
 
 .btn-ittefaq {
-  background: rgba(10, 132, 255, 0.12);
-  color: #64D2FF;
-  border-color: rgba(10, 132, 255, 0.3);
+  background: var(--bg-surface-elevated);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: var(--apple-amber);
 }
 
 .btn-ittefaq:hover {
@@ -334,89 +381,77 @@ a {
   box-shadow: 0 4px 16px var(--apple-glow);
 }
 
-.btn-ittefaq .icon {
-  width: 14px;
-  height: 14px;
-}
-
-/* Font Controls */
 .font-controls {
   display: flex;
   align-items: center;
-  background: var(--bg-track);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-hairline);
   border-radius: var(--radius-full);
   padding: 2px;
-  border: 1px solid var(--border-hairline);
 }
 
 .font-size-btn {
-  padding: 0.22rem 0.55rem;
-  font-size: 0.76rem;
-  font-weight: 600;
+  background: transparent;
+  border: none;
   color: var(--text-muted);
+  padding: 0.3rem 0.65rem;
   border-radius: var(--radius-full);
-  transition: var(--apple-spring);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--apple-spring-fast);
 }
 
-.font-size-btn:hover {
-  color: var(--text-primary);
-}
+.font-size-btn:hover { color: var(--text-primary); }
 
 .font-size-btn.active {
-  background: var(--text-primary);
-  color: var(--bg-canvas);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
 }
 
-/* Theme Toggle */
-.theme-toggle {
-  padding: 0.45rem 0.75rem;
+.theme-toggle .theme-name {
+  font-size: 0.78rem;
+  font-weight: 600;
 }
-
-.theme-icon {
-  font-size: 0.95rem;
-  line-height: 1;
-}
-
-.light-icon { display: none; }
-.dark-icon { display: inline; }
-[data-theme="parchment"] .light-icon { display: inline; }
-[data-theme="parchment"] .dark-icon { display: none; }
 
 /* ==========================================================================
-   APPLE SEGMENTED SUBNAV BAR
+   APPLE SEGMENTED TAB BAR
    ========================================================================== */
 .main-nav {
-  border-top: 1px solid var(--border-hairline);
   background: var(--nav-bg);
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 0.35rem 0;
 }
 
 .nav-container {
-  max-width: 1240px;
+  max-width: 1380px;
   margin: 0 auto;
-  padding: 0.35rem 1.5rem;
+  padding: 0 1.75rem;
   display: flex;
-  align-items: center;
-  gap: 0.45rem;
+  gap: 0.5rem;
   overflow-x: auto;
   scrollbar-width: none;
 }
 
-.nav-container::-webkit-scrollbar {
-  display: none;
-}
+.nav-container::-webkit-scrollbar { display: none; }
 
 .nav-tab {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1.05rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text-secondary);
+  gap: 0.55rem;
+  padding: 0.6rem 1.25rem;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
   border-radius: var(--radius-full);
+  cursor: pointer;
   white-space: nowrap;
   transition: var(--apple-spring);
+  position: relative;
 }
 
 .nav-tab:hover {
@@ -427,49 +462,88 @@ a {
 .nav-tab.active {
   color: var(--text-primary);
   background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-subtle);
-  font-weight: 600;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  font-weight: 700;
 }
 
-.tab-icon {
-  width: 15px;
-  height: 15px;
+.nav-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: var(--apple-accent);
+  border-radius: 999px;
+  box-shadow: 0 0 10px var(--apple-accent);
 }
 
-.nav-tab.active .tab-icon {
-  color: var(--apple-accent);
+.nav-tab .tab-icon {
+  width: 17px;
+  height: 17px;
+  transition: var(--apple-spring-fast);
 }
 
-.badge {
-  background: var(--bg-track);
-  color: var(--text-muted);
-  font-size: 0.7rem;
-  padding: 0.1rem 0.45rem;
+.nav-tab .badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.12rem 0.55rem;
   border-radius: var(--radius-full);
-  font-weight: 600;
+  background: var(--bg-surface-subtle);
+  color: var(--text-muted);
+  transition: var(--apple-spring-fast);
 }
 
 .nav-tab.active .badge {
-  background: var(--badge-genre-bg);
-  color: var(--badge-genre-text);
+  background: var(--apple-accent);
+  color: #000;
+  font-weight: 800;
 }
 
-.badge-fav {
-  background: var(--apple-crimson);
-  color: #FFF;
+.nav-tab .badge-fav {
+  background: rgba(244, 63, 94, 0.15);
+  color: var(--apple-crimson);
 }
 
 /* ==========================================================================
-   APPLE SHOWCASE HERO SECTION (CINEMATIC STAGE)
+   MAIN CONTENT & SHOWCASE HERO
    ========================================================================== */
-.apple-hero {
-  text-align: center;
-  padding: 3.5rem 1.5rem 3rem;
-  position: relative;
-  z-index: 10;
-  max-width: 940px;
+.main-content {
+  max-width: 1380px;
   margin: 0 auto;
+  padding: 2.25rem 1.75rem 6rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Apple Pro Hero Banner */
+.apple-hero {
+  margin-bottom: 2.5rem;
+  padding: 3rem 2.5rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.apple-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+}
+
+.hero-container {
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .hero-eyebrow {
@@ -477,84 +551,82 @@ a {
   align-items: center;
   gap: 0.65rem;
   margin-bottom: 1.25rem;
+  background: var(--bg-surface-subtle);
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-hairline);
 }
 
 .hero-eyebrow-pill {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--apple-amber);
   text-transform: uppercase;
-  color: #64D2FF;
-  background: var(--badge-genre-bg);
-  padding: 0.28rem 0.85rem;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(10, 132, 255, 0.35);
 }
 
 .hero-eyebrow-text {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--text-secondary);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .hero-headline {
-  font-family: var(--font-sans);
-  font-size: clamp(2.5rem, 6vw, 4.4rem);
+  font-family: var(--font-poetry);
+  font-size: clamp(2.2rem, 4.8vw, 3.8rem);
   font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.08;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.15rem;
 }
 
 .hero-gradient-text {
-  background: var(--apple-accent-gradient);
+  background: var(--hero-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
 
 .hero-subheadline {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   color: var(--text-secondary);
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto 2.25rem;
-  line-height: 1.65;
-  font-weight: 400;
+  line-height: 1.7;
 }
 
-/* Hero Stats Strip */
+/* Metric Badges Strip */
 .hero-stats-strip {
   display: inline-flex;
   align-items: center;
-  gap: 1.4rem;
-  padding: 0.7rem 2rem;
-  border-radius: var(--radius-full);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-hairline);
-  box-shadow: var(--shadow-sm);
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-hairline);
+  padding: 0.85rem 1.85rem;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
 }
 
 .hero-stat-item {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 0.45rem;
 }
 
-.stat-number {
-  font-size: 1.1rem;
+.hero-stat-item .stat-number {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
   font-weight: 800;
-  color: #64D2FF;
-  letter-spacing: -0.02em;
+  color: var(--apple-amber);
 }
 
-.stat-caption {
+.hero-stat-item .stat-caption {
   font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--text-secondary);
+  color: var(--text-muted);
+  font-weight: 600;
 }
 
 .stat-separator {
@@ -563,73 +635,41 @@ a {
   background: var(--border-hairline);
 }
 
-.stat-icon {
+.hero-stat-item.stat-audio .stat-icon {
   font-size: 1rem;
 }
 
 /* ==========================================================================
-   MAIN CONTENT & BENTO GRID ARCHITECTURE
-   ========================================================================== */
-.main-content {
-  flex: 1;
-  max-width: 1240px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 1.5rem 6rem;
-  position: relative;
-  z-index: 10;
-}
-
-.tab-pane {
-  display: none;
-  animation: appleFadeIn 0.3s var(--apple-spring);
-}
-
-.tab-pane.active {
-  display: block;
-}
-
-@keyframes appleFadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ==========================================================================
-   APPLE SPOTLIGHT SEARCH & FILTER CAPSULE
+   FILTER & QUERY PANEL (GLASS CONTROLS)
    ========================================================================== */
 .filter-panel {
-  background: var(--bg-surface);
+  background: var(--bg-card);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-xl);
-  padding: 1.35rem 1.6rem;
-  margin-bottom: 2.5rem;
-  box-shadow: var(--shadow-md);
-  transition: var(--apple-spring);
-}
-
-.filter-panel:hover {
-  border-color: var(--border-subtle);
+  padding: 1.75rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .search-row {
   display: flex;
   gap: 1rem;
   align-items: center;
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.35rem;
 }
 
 .search-input-wrapper {
-  position: relative;
   flex: 1;
+  position: relative;
   display: flex;
   align-items: center;
 }
 
 .search-icon {
   position: absolute;
-  left: 1.1rem;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 1.15rem;
   width: 18px;
   height: 18px;
   color: var(--text-muted);
@@ -638,176 +678,176 @@ a {
 
 .search-input {
   width: 100%;
-  padding: 0.82rem 5rem 0.82rem 2.85rem;
-  font-size: 0.95rem;
-  font-family: inherit;
-  border: 1px solid var(--border-hairline);
+  padding: 0.85rem 3.5rem 0.85rem 3rem;
   border-radius: var(--radius-full);
+  border: 1px solid var(--border-hairline);
   background: var(--bg-input);
   color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  outline: none;
   transition: var(--apple-spring);
 }
 
 .search-input:focus {
-  outline: none;
-  border-color: var(--apple-accent);
+  border-color: var(--border-focus);
+  background: var(--bg-surface-elevated);
   box-shadow: 0 0 0 3px var(--apple-glow);
 }
 
 .search-kbd-shortcut {
   position: absolute;
-  right: 2.5rem;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 1.15rem;
   display: flex;
-  gap: 2px;
+  gap: 0.2rem;
   pointer-events: none;
 }
 
 .search-kbd-shortcut kbd {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  background: var(--bg-track);
+  background: var(--bg-surface-subtle);
   border: 1px solid var(--border-hairline);
-  padding: 2px 5px;
-  border-radius: 5px;
+  border-radius: 4px;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
 }
 
 .clear-search-btn {
   position: absolute;
-  right: 0.85rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--bg-track);
+  right: 1rem;
+  background: var(--bg-surface-subtle);
+  border: none;
   color: var(--text-muted);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
   display: none;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  cursor: pointer;
+  font-size: 1.1rem;
   line-height: 1;
+  transition: var(--apple-spring-fast);
 }
 
-.clear-search-btn:hover {
-  background: var(--text-secondary);
-  color: var(--bg-canvas);
-}
+.clear-search-btn:hover { color: var(--text-primary); background: var(--bg-surface-hover); }
 
-/* View Mode Segmented Controls */
+/* View Mode Toggles */
 .view-mode-toggle {
   display: flex;
-  background: var(--bg-track);
-  border-radius: var(--radius-full);
-  padding: 3px;
+  background: var(--bg-surface-subtle);
   border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-full);
+  padding: 2px;
 }
 
 .view-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.45rem 0.85rem;
-  font-size: 0.82rem;
-  font-weight: 600;
+  padding: 0.5rem 0.85rem;
+  background: transparent;
+  border: none;
   color: var(--text-muted);
   border-radius: var(--radius-full);
-  transition: var(--apple-spring);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--apple-spring-fast);
 }
 
 .view-btn svg { width: 14px; height: 14px; }
-.view-btn:hover { color: var(--text-primary); }
 
 .view-btn.active {
-  background: var(--text-primary);
-  color: var(--bg-canvas);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
 }
 
-/* Filters Dropdowns */
+/* Filters Row */
 .filters-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.25rem;
 }
 
 .filter-group {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.4rem;
 }
 
 .filter-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
   display: flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--text-secondary);
+  gap: 0.4rem;
 }
 
-.filter-icon { width: 13px; height: 13px; color: var(--apple-accent); }
+.filter-icon { width: 14px; height: 14px; color: var(--apple-accent); }
 
 .filter-select {
-  padding: 0.65rem 0.95rem;
-  font-size: 0.88rem;
-  font-family: inherit;
-  font-weight: 500;
-  border: 1px solid var(--border-hairline);
+  padding: 0.65rem 1rem;
   border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
   background: var(--bg-input);
   color: var(--text-primary);
-  transition: var(--apple-spring);
+  font-size: 0.88rem;
+  font-family: var(--font-sans);
+  outline: none;
   cursor: pointer;
+  transition: var(--apple-spring-fast);
 }
 
 .filter-select:focus {
-  outline: none;
-  border-color: var(--apple-accent);
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--apple-glow);
 }
 
-/* Theme Chips */
+/* Quick Theme Chips */
 .theme-chips-row {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1.1rem;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  padding: 0.4rem 0 0.8rem;
+  margin-bottom: 0.75rem;
 }
 
 .chips-title {
-  font-size: 0.78rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 700;
   color: var(--text-muted);
-  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .chips-container {
   display: flex;
-  flex-wrap: wrap;
   gap: 0.45rem;
+  min-width: max-content;
 }
 
 .theme-chip {
-  padding: 0.32rem 0.8rem;
+  padding: 0.35rem 0.85rem;
   border-radius: var(--radius-full);
   font-size: 0.78rem;
-  font-weight: 500;
+  font-weight: 600;
   background: var(--bg-surface-subtle);
   color: var(--text-secondary);
   border: 1px solid var(--border-hairline);
-  transition: var(--apple-spring);
   cursor: pointer;
+  transition: var(--apple-spring-fast);
+  white-space: nowrap;
 }
 
 .theme-chip:hover {
   background: var(--bg-surface-hover);
   color: var(--text-primary);
-  border-color: var(--border-subtle);
 }
 
 .theme-chip.active {
@@ -818,80 +858,79 @@ a {
   box-shadow: 0 2px 10px var(--apple-glow);
 }
 
-/* Active Filters Strip */
+/* Active Filters & Status */
 .active-filters-bar {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  padding-top: 0.85rem;
-  border-top: 1px dashed var(--border-hairline);
-  margin-bottom: 0.85rem;
-  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border-hairline);
+  margin-top: 0.5rem;
 }
 
-.active-label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--text-muted);
-}
+.active-label { font-size: 0.8rem; font-weight: 700; color: var(--apple-amber); }
+.active-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
-.active-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-}
-
-.filter-tag {
+.active-tag {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.22rem 0.65rem;
+  padding: 0.25rem 0.65rem;
   border-radius: var(--radius-full);
-  background: var(--badge-genre-bg);
-  color: var(--badge-genre-text);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
   font-size: 0.76rem;
   font-weight: 600;
+  color: var(--text-primary);
 }
 
-.filter-tag-remove { cursor: pointer; font-size: 0.95rem; line-height: 1; }
+.remove-tag-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-weight: bold;
+}
 
 .reset-filters-btn {
   margin-left: auto;
+  background: transparent;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-full);
+  padding: 0.3rem 0.75rem;
+  color: var(--apple-crimson);
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--apple-crimson);
-  padding: 0.2rem 0.45rem;
+  cursor: pointer;
 }
 
 .result-status-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  padding-top: 0.75rem;
+  padding-top: 0.85rem;
   border-top: 1px solid var(--border-hairline);
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
-.read-hint { color: #64D2FF; font-weight: 500; }
+.read-hint { font-size: 0.8rem; color: var(--apple-accent); }
 
 /* ==========================================================================
-   THE RADICAL APPLE BENTO GRID (RESPONSIVE MULTI-COLUMN TILES)
+   THE RADICAL APPLE POETRY STUDIO CARD ARCHITECTURE
    ========================================================================== */
 .shayari-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
-  gap: 1.85rem;
+  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+  gap: 2rem;
   align-items: start;
 }
 
-@media (max-width: 960px) {
-  .shayari-container {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 980px) {
+  .shayari-container { grid-template-columns: 1fr; }
 }
 
-/* Individual Bento Poem Tile */
+/* Individual Studio Glass Tile */
 .shayari-card {
   background: var(--bg-card);
   backdrop-filter: blur(28px) saturate(180%);
@@ -906,8 +945,19 @@ a {
   flex-direction: column;
 }
 
+.shayari-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  opacity: 0.7;
+}
+
 .shayari-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   border-color: var(--border-hover);
   box-shadow: var(--shadow-neon);
 }
@@ -917,9 +967,9 @@ a {
   box-shadow: var(--shadow-neon);
 }
 
-/* --- PART 1: TOP ARTIST & CONTEXT STRIP --- */
+/* ZONE 1: TOP ARTIST & CONTROLS STRIP */
 .card-part-about {
-  padding: 1.25rem 1.6rem 1.1rem;
+  padding: 1.35rem 1.65rem 1.15rem;
   background: var(--bg-card-header);
   border-bottom: 1px solid var(--border-hairline);
 }
@@ -935,39 +985,41 @@ a {
 .poet-badge {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
 }
 
 .poet-avatar {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--bg-surface-elevated);
   border: 2px solid transparent;
-  background: linear-gradient(#121215, #121215) padding-box, var(--apple-accent-gradient) border-box;
-  color: #64D2FF;
+  background: linear-gradient(#121218, #121218) padding-box, var(--apple-accent-gradient) border-box;
+  color: var(--apple-amber);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-poetry);
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 1.35rem;
+  font-weight: 800;
   flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .poet-meta h3 {
-  font-family: var(--font-sans);
-  font-size: 1.18rem;
+  font-family: var(--font-poetry);
+  font-size: 1.25rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
   line-height: 1.2;
 }
 
 .poet-meta span {
-  font-size: 0.78rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
   color: var(--text-muted);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .card-meta-badges {
@@ -977,31 +1029,89 @@ a {
 }
 
 .genre-badge {
-  padding: 0.22rem 0.75rem;
+  padding: 0.25rem 0.8rem;
   border-radius: var(--radius-full);
   background: var(--badge-genre-bg);
   color: var(--badge-genre-text);
   font-size: 0.74rem;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-weight: 800;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .poem-num-badge {
   font-size: 0.74rem;
   color: var(--text-muted);
-  font-weight: 600;
+  font-weight: 700;
   background: var(--bg-track);
-  padding: 0.22rem 0.65rem;
+  padding: 0.25rem 0.7rem;
   border-radius: var(--radius-full);
+}
+
+/* ZONE 2: POEM TITLE & ACCORDION CONTEXT */
+.poem-card-headline {
+  margin-top: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.poem-headline-title {
+  font-family: var(--font-poetry);
+  font-size: 1.32rem;
+  font-weight: 700;
+  color: var(--misra1-color);
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.context-drawer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-full);
+  padding: 0.35rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--apple-spring);
+  margin-top: 0.4rem;
+}
+
+.context-drawer-btn:hover {
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
+}
+
+.context-drawer-btn svg {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.3s ease;
+}
+
+.shayari-card.context-open .context-drawer-btn svg {
+  transform: rotate(180deg);
+}
+
+.poem-context-drawer {
+  display: none;
+  padding-top: 0.85rem;
+  margin-top: 0.75rem;
+  border-top: 1px dashed var(--border-hairline);
+  animation: fadeIn 0.3s ease;
+}
+
+.shayari-card.context-open .poem-context-drawer {
+  display: block;
 }
 
 .about-text-content {
   font-size: 0.92rem;
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: 1.68;
   margin-bottom: 0.75rem;
-  font-family: var(--font-sans);
 }
 
 .about-genre-detail {
@@ -1009,15 +1119,13 @@ a {
   color: var(--text-muted);
   line-height: 1.5;
   background: var(--bg-surface-subtle);
-  border-left: 2.5px solid var(--apple-accent);
-  padding: 0.45rem 0.8rem;
+  border-left: 3px solid var(--apple-accent);
+  padding: 0.5rem 0.85rem;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   margin-bottom: 0.75rem;
 }
 
-.about-genre-detail strong {
-  color: var(--text-primary);
-}
+.about-genre-detail strong { color: var(--text-primary); }
 
 .card-theme-tags {
   display: flex;
@@ -1027,15 +1135,15 @@ a {
 
 .card-tag {
   font-size: 0.72rem;
-  font-weight: 500;
-  padding: 0.15rem 0.55rem;
+  font-weight: 600;
+  padding: 0.15rem 0.6rem;
   border-radius: var(--radius-full);
   background: var(--bg-surface-subtle);
   color: var(--text-muted);
   border: 1px solid var(--border-hairline);
 }
 
-/* --- PART 2: THE POETRY CANVAS (MODERN HIGH-CONTRAST SANS-SERIF) --- */
+/* ZONE 3: THE POETRY SANCTUARY (HIGH CHROMATIC DISTINCTION) */
 .card-part-verses {
   padding: 2.25rem 2rem 1.85rem;
   position: relative;
@@ -1045,8 +1153,8 @@ a {
 
 .verses-watermark {
   position: absolute;
-  top: 1rem;
-  right: 1.5rem;
+  top: 1.25rem;
+  right: 1.75rem;
   font-family: var(--font-heading);
   font-size: 5rem;
   line-height: 1;
@@ -1059,18 +1167,18 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.75rem;
-  padding-bottom: 0.75rem;
+  margin-bottom: 1.85rem;
+  padding-bottom: 0.85rem;
   border-bottom: 1px solid var(--border-hairline);
 }
 
 .verses-heading {
-  font-family: var(--font-sans);
-  font-size: 0.76rem;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #64D2FF;
+  letter-spacing: 0.12em;
+  color: var(--apple-amber);
 }
 
 .verses-actions {
@@ -1083,134 +1191,254 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.38rem 0.75rem;
+  padding: 0.42rem 0.85rem;
   border-radius: var(--radius-full);
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-secondary);
   border: 1px solid var(--border-hairline);
   background: var(--bg-surface);
   transition: var(--apple-spring);
+  cursor: pointer;
 }
 
 .verse-action-btn:hover {
   color: var(--text-primary);
   border-color: var(--border-subtle);
   background: var(--bg-surface-hover);
+  transform: translateY(-1px);
 }
 
 .verse-action-btn.fav-btn.active {
   color: #FFF;
   border-color: transparent;
   background: var(--apple-crimson);
+  box-shadow: 0 2px 10px rgba(244, 63, 94, 0.4);
 }
 
 .verse-action-btn.listen-btn.playing {
   color: #000;
   border-color: transparent;
   background: var(--apple-accent-gradient);
+  box-shadow: 0 2px 12px var(--apple-glow);
 }
 
 .verse-action-btn svg { width: 13px; height: 13px; }
 
-/* Couplets / Verses Styling */
+/* Couplet Stanzas (Poetic Rhythm & High Contrast) */
 .poetry-body {
-  font-family: var(--font-poetry);
-  font-size: var(--poetry-size);
-  line-height: var(--poetry-line-height);
-  color: var(--text-primary);
-  text-align: center;
   margin: 0 auto;
 }
 
-.couplet {
-  margin-bottom: 1.4rem;
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius-md);
+.couplet-stanza {
+  margin-bottom: 1.6rem;
+  padding: 0.95rem 1.25rem 0.95rem 1.4rem;
+  border-radius: var(--radius-lg);
+  position: relative;
   transition: var(--apple-spring);
+  border-left: 3px solid transparent;
 }
 
-.couplet:hover {
+.couplet-stanza:hover {
   background: var(--bg-surface-subtle);
+  border-left-color: var(--apple-amber);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+  transform: translateX(3px);
 }
 
-.couplet.speaking {
-  background: rgba(10, 132, 255, 0.15);
-  box-shadow: 0 0 0 1px var(--apple-accent);
+.couplet-stanza.speaking {
+  background: rgba(245, 158, 11, 0.14);
+  border-left-color: var(--apple-amber);
+  box-shadow: 0 0 0 1px var(--apple-amber), 0 8px 24px var(--apple-glow);
 }
 
-.couplet:last-child {
+.couplet-stanza:last-child {
   margin-bottom: 0;
+}
+
+.couplet-index-badge {
+  position: absolute;
+  left: 0.4rem;
+  top: 0.95rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-faint);
+  letter-spacing: 0.05em;
+}
+
+.couplet-lines {
+  padding-left: 0.75rem;
 }
 
 .misra {
   display: block;
-  letter-spacing: 0.02em;
+  font-family: var(--font-poetry);
+  font-size: var(--poetry-size);
+  line-height: var(--poetry-line-height);
+  letter-spacing: 0.015em;
+  transition: color 0.3s ease;
 }
 
-.misra-1 { font-weight: 600; color: #FFFFFF; }
-.misra-2 { font-weight: 500; color: var(--text-secondary); margin-top: 0.2rem; }
+/* MISRA 1: RADIANT SUNLIT CHAMPAGNE GOLD */
+.misra-1 {
+  font-weight: 600;
+  color: var(--misra1-color);
+  text-shadow: 0 0 16px var(--misra1-glow);
+}
 
-[data-theme="parchment"] .misra-1 { color: #000000; }
-[data-theme="parchment"] .misra-2 { color: #333336; }
+/* MISRA 2: LUMINOUS CELESTIAL OPAL */
+.misra-2 {
+  font-weight: 500;
+  color: var(--misra2-color);
+  margin-top: 0.35rem;
+  text-shadow: 0 0 14px var(--misra2-glow);
+}
 
-/* Interactive Vocabulary Highlight Capsules */
+/* GLOWING GEMSTONE DEWDROP PILLS (DIFFICULT WORDS IN VERSES) */
 .glossary-term {
-  border-bottom: none;
-  background: rgba(10, 132, 255, 0.16);
-  color: #64D2FF;
-  border: 1px solid rgba(10, 132, 255, 0.35);
+  background: var(--glossary-bg);
+  color: var(--glossary-text) !important;
+  border: 1px solid var(--glossary-border);
   font-weight: 600;
   cursor: pointer;
-  padding: 1px 6px;
-  border-radius: 6px;
+  padding: 1px 8px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 10px var(--glossary-glow);
   transition: var(--apple-spring-fast);
   display: inline-block;
+  white-space: nowrap;
 }
 
 .glossary-term:hover {
-  background: #0A84FF;
-  color: #FFFFFF !important;
-  border-color: #0A84FF;
-  box-shadow: 0 2px 10px rgba(10, 132, 255, 0.4);
+  background: var(--glossary-text);
+  color: #000000 !important;
+  box-shadow: 0 2px 14px var(--glossary-text);
+  transform: translateY(-1px);
 }
 
-/* --- PART 3: TOUGH WORDS BENTO TILES --- */
+/* ZONE 4: INLINE SLEEK VOCABULARY RIBBON (LAFZ-O-MA'NI) */
 .card-part-words {
-  padding: 1.25rem 1.6rem 1.45rem;
+  padding: 1.25rem 1.65rem 1.45rem;
   background: var(--bg-card-header);
   border-top: 1px solid var(--border-hairline);
 }
 
-.words-heading-bar {
+.vocab-ribbon-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
-.words-heading {
+.vocab-title {
   display: flex;
   align-items: center;
-  gap: 0.45rem;
-  font-family: var(--font-sans);
+  gap: 0.5rem;
+  font-family: var(--font-heading);
   font-size: 0.92rem;
   font-weight: 700;
   color: var(--text-primary);
 }
 
-.words-heading svg { width: 15px; height: 15px; color: var(--apple-accent); }
+.vocab-sparkle { color: var(--apple-amber); }
 
-.words-count-tag {
+.vocab-badge {
   font-size: 0.72rem;
   color: var(--text-muted);
-  font-weight: 600;
+  font-weight: 700;
   background: var(--bg-track);
   padding: 0.18rem 0.55rem;
   border-radius: var(--radius-full);
 }
 
-.words-grid {
+.vocab-expand-toggle {
+  background: transparent;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-full);
+  padding: 0.3rem 0.75rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--apple-spring-fast);
+}
+
+.vocab-expand-toggle:hover {
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
+  background: var(--bg-surface-subtle);
+}
+
+/* Compact Vocabulary Micro-Pills Preview */
+.vocab-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.vocab-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.32rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: var(--apple-spring-fast);
+}
+
+.vocab-pill-btn:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.vocab-pill-btn .vp-term {
+  font-family: var(--font-poetry);
+  font-weight: 700;
+  color: var(--glossary-text);
+}
+
+.vocab-pill-btn .vp-sep {
+  opacity: 0.4;
+  font-size: 0.7rem;
+}
+
+.vocab-pill-btn .vp-def {
+  color: var(--text-secondary);
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vocab-more-hint {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  padding-left: 0.25rem;
+}
+
+/* Expandable Full Vocabulary Drawer */
+.vocab-full-drawer {
+  display: none;
+  padding-top: 1rem;
+  margin-top: 0.85rem;
+  border-top: 1px dashed var(--border-hairline);
+  animation: fadeIn 0.3s ease;
+}
+
+.shayari-card.vocab-open .vocab-full-drawer {
+  display: block;
+}
+
+.vocab-drawer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 0.75rem;
@@ -1220,12 +1448,12 @@ a {
   background: var(--bg-surface);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-md);
-  padding: 0.8rem 0.95rem;
+  padding: 0.85rem 1rem;
   transition: var(--apple-spring);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .word-card:hover {
@@ -1243,238 +1471,93 @@ a {
 
 .word-term {
   font-family: var(--font-poetry);
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   font-weight: 700;
-  color: #64D2FF;
+  color: var(--glossary-text);
 }
 
 .word-trans {
-  font-size: 0.78rem;
-  font-style: italic;
+  font-size: 0.76rem;
   color: var(--text-muted);
+  font-style: italic;
 }
 
 .word-meaning {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
+  font-size: 0.86rem;
+  color: var(--text-primary);
   line-height: 1.5;
 }
 
 .word-dict-link {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--apple-accent);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  align-self: flex-start;
-  margin-top: 0.2rem;
-  transition: var(--apple-spring);
-}
-
-.word-dict-link:hover {
-  color: #64D2FF;
-  transform: translateX(2px);
-}
-
-/* Compact View Mode Adjustments */
-.compact-view .card-part-about { padding: 0.9rem 1.25rem; }
-.compact-view .about-text-content,
-.compact-view .about-genre-detail { display: none; }
-.compact-view .shayari-card.expanded .about-text-content,
-.compact-view .shayari-card.expanded .about-genre-detail { display: block; }
-.compact-toggle-btn { display: none; }
-
-.compact-view .compact-toggle-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
   font-size: 0.76rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--apple-accent);
-  padding: 0.3rem 0.65rem;
-  border-radius: var(--radius-full);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-hairline);
-  margin-top: 0.4rem;
-}
-
-/* ==========================================================================
-   FLOATING DYNAMIC ISLAND / APPLE MUSIC AUDIO BAR
-   ========================================================================== */
-.apple-audio-bar {
-  position: fixed;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 200;
-  background: rgba(18, 19, 26, 0.92);
-  backdrop-filter: blur(28px) saturate(200%);
-  -webkit-backdrop-filter: blur(28px) saturate(200%);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-full);
-  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.85);
-  animation: audioBarSlideUp 0.35s var(--apple-spring);
-}
-
-@keyframes audioBarSlideUp {
-  from { opacity: 0; transform: translateX(-50%) translateY(30px) scale(0.92); }
-  to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
-}
-
-.audio-bar-inner {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  padding: 0.65rem 1.25rem 0.65rem 0.85rem;
-}
-
-.audio-bar-track {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.audio-bar-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--apple-accent-gradient);
-  color: #000;
-  font-weight: 700;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.audio-bar-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.audio-bar-title {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #FFF;
-  line-height: 1.2;
-}
-
-.audio-bar-poet {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-.audio-bar-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-/* Animated Sound Wave Equalizer */
-.equalizer-waves {
-  display: flex;
-  align-items: flex-end;
-  gap: 3px;
-  height: 18px;
-  padding: 0 4px;
-}
-
-.eq-bar {
-  width: 3px;
-  background: var(--apple-accent-gradient);
-  border-radius: 2px;
-  animation: eqBounce 1.2s infinite ease-in-out alternate;
-}
-
-.eq-bar.bar-1 { height: 40%; animation-delay: 0.1s; }
-.eq-bar.bar-2 { height: 95%; animation-delay: 0.4s; }
-.eq-bar.bar-3 { height: 65%; animation-delay: 0.25s; }
-.eq-bar.bar-4 { height: 80%; animation-delay: 0.5s; }
-
-@keyframes eqBounce {
-  0% { height: 25%; }
-  100% { height: 100%; }
-}
-
-.audio-bar-btn {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg-surface-hover);
-  color: #FFF;
+  text-decoration: none;
+  align-self: flex-start;
   transition: var(--apple-spring-fast);
 }
 
-.audio-bar-btn:hover {
-  background: #FFF;
-  color: #000;
-}
-
-.audio-bar-btn.close-btn {
-  font-size: 1.2rem;
-  line-height: 1;
-}
+.word-dict-link:hover { text-decoration: underline; }
 
 /* ==========================================================================
    TAB 2: DICTIONARY / LUGHAT (APPLE LEXICON BENTO)
    ========================================================================== */
 .dictionary-header {
-  background: var(--bg-surface);
+  background: var(--bg-card);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-xl);
-  padding: 1.75rem 2rem;
+  padding: 2rem 2.25rem;
   margin-bottom: 2rem;
   box-shadow: var(--shadow-sm);
 }
 
-.dict-intro { margin-bottom: 1.35rem; }
+.dict-intro { margin-bottom: 1.45rem; }
 
 .dict-title {
-  font-family: var(--font-sans);
-  font-size: 1.85rem;
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--text-primary);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
 }
 
 .dict-title span {
   background: var(--apple-accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-family: var(--font-poetry);
+  font-size: 1.6rem;
 }
 
 .dict-subtitle {
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .dict-search-wrapper { position: relative; margin-bottom: 1.35rem; }
 
-/* Devanagari Alphabet Filter Bar */
+/* Devanagari Alphabet Filter Bar with Live Counts */
 .alphabet-filter-container {
   overflow-x: auto;
   scrollbar-width: thin;
-  padding-bottom: 0.6rem;
-  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
 }
 
-.alphabet-row { display: flex; gap: 0.35rem; min-width: max-content; }
+.alphabet-row { display: flex; gap: 0.4rem; min-width: max-content; }
 
 .letter-btn {
-  min-width: 36px;
-  height: 36px;
-  padding: 0 0.5rem;
+  min-width: 44px;
+  height: 40px;
+  padding: 0 0.65rem;
   border-radius: var(--radius-sm);
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-family: var(--font-poetry);
+  font-size: 0.95rem;
+  font-weight: 700;
   background: var(--bg-surface-subtle);
   color: var(--text-secondary);
   border: 1px solid var(--border-hairline);
@@ -1482,49 +1565,111 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.25rem;
+  cursor: pointer;
 }
 
-.letter-btn:hover { background: var(--bg-surface-hover); color: var(--text-primary); }
+.letter-btn .letter-count {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  opacity: 0.6;
+  font-weight: 600;
+}
+
+.letter-btn:hover {
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
+}
 
 .letter-btn.active {
   background: var(--apple-accent-gradient);
   color: #000;
   border-color: transparent;
+  font-weight: 800;
+  box-shadow: 0 2px 10px var(--apple-glow);
+}
+
+.letter-btn.active .letter-count {
+  opacity: 0.9;
+  font-weight: 800;
+}
+
+/* Active Filter Alert Banner */
+.dict-filter-alert {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: var(--radius-md);
+  padding: 0.95rem 1.35rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.filter-alert-content {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+}
+
+.filter-alert-icon { font-size: 1.15rem; }
+
+.dict-reset-filter-btn {
+  background: var(--apple-amber);
+  color: #000;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 0.45rem 1.05rem;
+  font-size: 0.82rem;
   font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--apple-spring-fast);
+}
+
+.dict-reset-filter-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 2px 12px var(--apple-glow);
 }
 
 .dict-status-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.84rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
-  padding-top: 0.85rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--border-hairline);
 }
 
 /* Dictionary Bento Grid */
 .dictionary-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.35rem;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
 }
 
 .dict-card {
   background: var(--bg-card);
+  backdrop-filter: blur(20px);
   border: 1px solid var(--border-hairline);
-  border-radius: var(--radius-lg);
-  padding: 1.35rem 1.55rem;
+  border-radius: var(--radius-xl);
+  padding: 1.5rem 1.75rem;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 0.95rem;
+  gap: 1.1rem;
   transition: var(--apple-spring);
 }
 
 .dict-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: var(--border-hover);
   box-shadow: var(--shadow-md);
 }
@@ -1535,456 +1680,492 @@ a {
   justify-content: space-between;
   gap: 0.5rem;
   border-bottom: 1px solid var(--border-hairline);
-  padding-bottom: 0.65rem;
+  padding-bottom: 0.75rem;
 }
 
 .dict-word {
   font-family: var(--font-poetry);
-  font-size: 1.45rem;
+  font-size: 1.55rem;
   font-weight: 700;
-  color: #64D2FF;
+  color: var(--glossary-text);
+  letter-spacing: 0.01em;
 }
 
-.dict-trans { font-size: 0.85rem; font-style: italic; color: var(--text-muted); }
-.dict-meaning { font-size: 0.95rem; color: var(--text-primary); line-height: 1.6; }
+.dict-trans {
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.dict-meaning {
+  font-size: 0.98rem;
+  color: var(--text-primary);
+  line-height: 1.65;
+}
 
 .dict-occurrences {
   background: var(--bg-surface-subtle);
   border-radius: var(--radius-md);
-  padding: 0.75rem 0.95rem;
+  padding: 0.85rem 1rem;
   border-left: 3px solid var(--apple-accent);
 }
 
 .occurrences-title {
   font-size: 0.74rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   color: var(--text-muted);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.45rem;
 }
 
 .occurrence-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  padding: 0.2rem 0;
+  padding: 0.35rem 0;
+  font-size: 0.84rem;
+  border-bottom: 1px solid var(--border-hairline);
 }
+
+.occurrence-item:last-child { border-bottom: none; }
 
 .occurrence-link {
-  font-size: 0.82rem;
-  font-weight: 600;
   color: var(--apple-accent);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.82rem;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  transition: var(--apple-spring);
+  transition: var(--apple-spring-fast);
 }
 
-.occurrence-link:hover { transform: translateX(3px); color: #64D2FF; }
+.occurrence-link:hover { text-decoration: underline; }
 
 /* ==========================================================================
-   TAB 3: POETS DIRECTORY (APPLE MUSIC ARTIST TILES)
+   TAB 3: POETS DIRECTORY & TAB 4: FAVORITES
    ========================================================================== */
-.poets-header, .favorites-header { margin-bottom: 2rem; }
-
-.section-title {
-  font-family: var(--font-sans);
-  font-size: 1.95rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--text-primary);
-  margin-bottom: 0.35rem;
+.poets-directory-header {
+  background: var(--bg-card);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-xl);
+  padding: 2rem 2.25rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
 }
-
-.section-title span {
-  font-size: 1.35rem;
-  color: #64D2FF;
-  font-weight: 600;
-}
-
-.section-subtitle { font-size: 0.98rem; color: var(--text-secondary); }
 
 .poets-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 1.35rem;
+  gap: 1.5rem;
 }
 
 .poet-card {
   background: var(--bg-card);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-xl);
-  padding: 1.5rem;
+  padding: 1.65rem 1.85rem;
   box-shadow: var(--shadow-sm);
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1.15rem;
-  transition: var(--apple-spring);
+  align-items: center;
+  gap: 1.25rem;
   cursor: pointer;
+  transition: var(--apple-spring);
 }
 
 .poet-card:hover {
   transform: translateY(-4px);
   border-color: var(--border-hover);
-  box-shadow: var(--shadow-neon);
+  box-shadow: var(--shadow-md);
 }
 
-.poet-card-main { display: flex; align-items: center; gap: 1.1rem; }
-
 .poet-card-avatar {
-  width: 56px;
-  height: 56px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
   background: var(--bg-surface-elevated);
   border: 2px solid transparent;
-  background: linear-gradient(#161822, #161822) padding-box, var(--apple-accent-gradient) border-box;
-  color: #64D2FF;
+  background: linear-gradient(#121218, #121218) padding-box, var(--apple-accent-gradient) border-box;
+  color: var(--apple-amber);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-poetry);
-  font-size: 1.65rem;
-  font-weight: 700;
+  font-size: 1.55rem;
+  font-weight: 800;
   flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
 }
 
-.poet-card-name h3 {
-  font-family: var(--font-sans);
-  font-size: 1.3rem;
+.poet-card-info h3 {
+  font-family: var(--font-poetry);
+  font-size: 1.28rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
   color: var(--text-primary);
-  line-height: 1.2;
+  margin-bottom: 0.15rem;
 }
 
-.poet-card-name p { font-size: 0.85rem; color: var(--text-muted); }
+.poet-card-info p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 0.45rem;
+}
 
-.poet-card-footer {
+.poet-count-badge {
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface-subtle);
+  color: var(--apple-accent);
+  border: 1px solid var(--border-hairline);
+}
+
+/* Tab Panes Visibility */
+.tab-pane { display: none; }
+.tab-pane.active { display: block; animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* ==========================================================================
+   DYNAMIC ISLAND / FLOATING APPLE MUSIC AUDIO BAR
+   ========================================================================== */
+.apple-audio-bar {
+  position: fixed;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  z-index: 9999;
+  background: rgba(14, 16, 26, 0.92);
+  backdrop-filter: blur(36px) saturate(210%);
+  -webkit-backdrop-filter: blur(36px) saturate(210%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-full);
+  padding: 0.65rem 1.35rem 0.65rem 0.85rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  min-width: 380px;
+  max-width: 90vw;
+}
+
+[data-theme="parchment"] .apple-audio-bar {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.apple-audio-bar.active {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.audio-bar-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--border-hairline);
+  gap: 1.25rem;
 }
 
-.poet-count-badge { font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); }
-
-.poet-view-action {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--apple-accent);
-  display: inline-flex;
+.audio-bar-meta {
+  display: flex;
   align-items: center;
-  gap: 0.3rem;
-  transition: var(--apple-spring);
+  gap: 0.75rem;
+  min-width: 0;
 }
 
-.poet-card:hover .poet-view-action { transform: translateX(3px); color: #64D2FF; }
-
-/* Empty State */
-.empty-state {
-  text-align: center;
-  padding: 4.5rem 2rem;
-  background: var(--bg-card);
-  border: 1px dashed var(--border-hairline);
-  border-radius: var(--radius-xl);
+.audio-bar-icon-disc {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--apple-accent-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  box-shadow: 0 4px 12px var(--apple-glow);
+  flex-shrink: 0;
 }
 
-.empty-state-icon { font-size: 2.8rem; margin-bottom: 0.85rem; }
-.empty-state-title {
-  font-family: var(--font-sans);
-  font-size: 1.45rem;
+.audio-bar-texts {
+  min-width: 0;
+}
+
+.audio-bar-title {
+  font-family: var(--font-poetry);
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.45rem;
-}
-.empty-state-desc {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  max-width: 480px;
-  margin: 0 auto 1.5rem;
-  line-height: 1.6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+.audio-bar-poet {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.audio-bar-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Equalizer Bars Animation */
+.equalizer-waves {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 18px;
+  padding: 0 4px;
+}
+
+.eq-bar {
+  width: 3px;
+  background: var(--apple-accent);
+  border-radius: 999px;
+  animation: eqBounce 1.2s ease-in-out infinite;
+}
+
+.bar-1 { height: 6px; animation-delay: 0.1s; }
+.bar-2 { height: 14px; animation-delay: 0.3s; }
+.bar-3 { height: 18px; animation-delay: 0.2s; }
+.bar-4 { height: 9px; animation-delay: 0.4s; }
+
+@keyframes eqBounce {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+.audio-bar-btn {
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-primary);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--apple-spring-fast);
+}
+
+.audio-bar-btn:hover { background: var(--bg-surface-hover); transform: scale(1.05); }
+
 /* ==========================================================================
-   VISIONOS SPATIAL GLASS MODAL (ITTEFAQ / RANDOM COUPLENT VIEWER)
+   MODALS, TOOLTIPS & TOAST NOTIFICATIONS
    ========================================================================== */
-.modal-backdrop {
+.modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(32px) saturate(190%);
-  -webkit-backdrop-filter: blur(32px) saturate(190%);
-  z-index: 120;
-  display: flex;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 10000;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s var(--apple-spring);
+  transition: opacity 0.3s ease;
 }
 
-.modal-backdrop.open { opacity: 1; pointer-events: auto; }
+.modal-overlay.open {
+  display: flex;
+  opacity: 1;
+}
 
-.modal-card {
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-2xl);
-  max-width: 620px;
-  width: 100%;
+.modal-sheet {
+  background: var(--bg-card);
+  backdrop-filter: blur(32px);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-xl);
   padding: 2.5rem;
-  position: relative;
+  max-width: 680px;
+  width: 100%;
   box-shadow: var(--shadow-lg);
-  transform: scale(0.94) translateY(12px);
-  transition: transform 0.35s var(--apple-spring);
+  position: relative;
+  animation: modalPop 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.modal-backdrop.open .modal-card { transform: scale(1) translateY(0); }
-
-.close-modal-btn {
+.modal-close-btn {
   position: absolute;
   top: 1.25rem;
   right: 1.25rem;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: var(--bg-track);
-  color: var(--text-muted);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-primary);
+  font-size: 1.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
-  line-height: 1;
-  transition: var(--apple-spring);
+  cursor: pointer;
+  transition: var(--apple-spring-fast);
 }
 
-.close-modal-btn:hover { background: var(--text-muted); color: var(--bg-canvas); }
-
-.modal-badge {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: #64D2FF;
-  background: var(--badge-genre-bg);
-  padding: 0.28rem 0.8rem;
-  border-radius: var(--radius-full);
-  margin-bottom: 1.5rem;
-}
-
-.modal-content { text-align: center; margin-bottom: 2.25rem; }
-
-.modal-couplet {
-  font-family: var(--font-poetry);
-  font-size: 1.6rem;
-  line-height: 2.2;
-  color: #FFFFFF;
-  margin-bottom: 1.25rem;
-}
-
-.modal-poet-meta {
-  font-family: var(--font-sans);
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #64D2FF;
-}
+.modal-close-btn:hover { background: var(--bg-surface-hover); transform: scale(1.06); }
 
 .modal-actions {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+  justify-content: flex-end;
 }
 
 .modal-action-btn {
-  padding: 0.7rem 1.4rem;
+  padding: 0.65rem 1.45rem;
   border-radius: var(--radius-full);
-  font-size: 0.9rem;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  transition: var(--apple-spring);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-surface-subtle);
+  color: var(--text-primary);
+  transition: var(--apple-spring-fast);
 }
 
 .modal-action-btn.primary {
   background: var(--apple-accent-gradient);
   color: #000;
-  border: none;
-  font-weight: 700;
+  border-color: transparent;
+  box-shadow: 0 2px 14px var(--apple-glow);
 }
 
-.modal-action-btn.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 18px var(--apple-glow);
-}
+.modal-action-btn:hover { transform: translateY(-1px); }
 
-.modal-action-btn.secondary {
-  background: var(--bg-surface);
-  color: var(--text-primary);
-  border: 1px solid var(--border-hairline);
-}
-
-.modal-action-btn.secondary:hover {
-  background: var(--bg-surface-hover);
-  transform: translateY(-2px);
-}
-
-.modal-action-btn svg { width: 15px; height: 15px; }
-
-/* ==========================================================================
-   VISIONOS SPATIAL WORD TOOLTIP POPOVER
-   ========================================================================== */
-.word-tooltip {
+/* Word Definition Tooltip Popover */
+.word-tooltip-popover {
   position: fixed;
-  z-index: 110;
-  background: var(--bg-surface-elevated);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid var(--border-subtle);
+  z-index: 10001;
+  width: 320px;
+  background: rgba(18, 20, 32, 0.94);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: var(--radius-lg);
-  padding: 1rem 1.25rem;
-  max-width: 320px;
+  padding: 1.25rem 1.35rem;
   box-shadow: var(--shadow-lg);
-  pointer-events: auto;
-  animation: applePopoverIn 0.2s var(--apple-spring);
+  display: none;
+  animation: fadeIn 0.2s ease;
 }
 
-@keyframes applePopoverIn {
-  from { opacity: 0; transform: scale(0.94) translateY(6px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
+[data-theme="parchment"] .word-tooltip-popover {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(0, 0, 0, 0.14);
 }
 
 .tooltip-header {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 0.5rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border-hairline);
+  padding-bottom: 0.45rem;
 }
 
 .tooltip-word {
   font-family: var(--font-poetry);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  color: #64D2FF;
+  color: var(--glossary-text);
 }
 
-.tooltip-trans { font-size: 0.8rem; font-style: italic; color: var(--text-muted); }
-.tooltip-meaning { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 0.65rem; }
+.tooltip-trans {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
 
-.tooltip-dict-btn {
+.tooltip-meaning {
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 0.85rem;
+}
+
+.tooltip-footer-btn {
+  width: 100%;
+  padding: 0.45rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-hairline);
+  color: var(--apple-accent);
   font-size: 0.78rem;
   font-weight: 700;
-  color: var(--apple-accent);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
   cursor: pointer;
-  transition: var(--apple-spring);
+  transition: var(--apple-spring-fast);
 }
 
-.tooltip-dict-btn:hover { transform: translateX(2px); color: #64D2FF; }
+.tooltip-footer-btn:hover {
+  background: var(--apple-accent-gradient);
+  color: #000;
+  border-color: transparent;
+}
 
-/* ==========================================================================
-   DYNAMIC ISLAND / HUD TOAST NOTIFICATION
-   ========================================================================== */
+/* Toast Notifications */
 .toast-notification {
   position: fixed;
-  bottom: 2.25rem;
-  left: 50%;
-  transform: translateX(-50%) translateY(20px) scale(0.94);
-  background: var(--bg-surface-elevated);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  color: var(--text-primary);
-  border: 1px solid var(--border-subtle);
-  padding: 0.7rem 1.6rem;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 10002;
+  background: rgba(18, 20, 32, 0.94);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--border-hairline);
   border-radius: var(--radius-full);
+  padding: 0.75rem 1.45rem;
+  color: var(--text-primary);
   font-size: 0.88rem;
   font-weight: 600;
-  box-shadow: var(--shadow-lg);
-  z-index: 130;
+  box-shadow: var(--shadow-md);
+  transform: translateY(100px);
   opacity: 0;
-  transition: var(--apple-spring);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
   pointer-events: none;
-  white-space: nowrap;
 }
 
 .toast-notification.show {
+  transform: translateY(0);
   opacity: 1;
-  transform: translateX(-50%) translateY(0) scale(1);
 }
 
-/* ==========================================================================
-   MINIMALIST FOOTER
-   ========================================================================== */
-.site-footer {
-  background: var(--bg-surface);
-  border-top: 1px solid var(--border-hairline);
-  padding: 2.75rem 1.5rem;
-  margin-top: auto;
-  position: relative;
-  z-index: 10;
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  border: 1px dashed var(--border-hairline);
 }
 
-.footer-container {
-  max-width: 1240px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1.75rem;
+.empty-state-icon { font-size: 3rem; margin-bottom: 1rem; }
+.empty-state-title { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem; }
+.empty-state-desc { color: var(--text-muted); font-size: 0.92rem; max-width: 480px; margin: 0 auto 1.5rem; }
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.footer-brand h3 {
-  font-family: var(--font-sans);
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  margin-bottom: 0.3rem;
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.footer-brand p { font-size: 0.86rem; color: var(--text-muted); max-width: 500px; }
-.footer-meta { text-align: right; font-size: 0.86rem; color: var(--text-muted); }
-.footer-copy { font-size: 0.76rem; margin-top: 0.35rem; color: var(--text-faint); }
-
-/* ==========================================================================
-   RESPONSIVE DESIGN (MOBILE / TABLET BREAKPOINTS)
-   ========================================================================== */
+/* Responsive Breakpoints */
 @media (max-width: 768px) {
-  .header-container { padding: 0.65rem 1rem; }
-  .brand-title { font-size: 1.05rem; }
-  .btn-ittefaq .btn-text, .theme-name { display: none; }
-  .search-kbd-shortcut { display: none; }
-  .search-input { padding-right: 2.8rem; }
-  .apple-hero { padding: 2.25rem 1rem 2rem; }
-  .hero-headline { font-size: 2.2rem; }
-  .hero-subheadline { font-size: 0.98rem; margin-bottom: 1.75rem; }
-  .hero-stats-strip { gap: 0.75rem; padding: 0.5rem 1.25rem; }
-  .main-content { padding: 0 1rem 4rem; }
-  .filter-panel { padding: 1.1rem; border-radius: var(--radius-lg); }
+  .header-container { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+  .header-actions { justify-content: space-between; }
   .search-row { flex-direction: column; }
   .view-mode-toggle { width: 100%; justify-content: center; }
-  .shayari-container { grid-template-columns: 1fr; }
-  .card-part-about { padding: 1.1rem 1.25rem; }
-  .card-part-verses { padding: 1.75rem 1.25rem; }
-  .verses-watermark { font-size: 3.5rem; right: 1rem; }
-  .card-part-words { padding: 1.1rem 1.25rem; }
-  .words-grid { grid-template-columns: 1fr; }
-  .modal-card { padding: 1.75rem 1.25rem; border-radius: var(--radius-xl); }
-  .footer-container { flex-direction: column; text-align: center; }
-  .footer-meta { text-align: center; }
-  .apple-audio-bar { width: calc(100% - 2rem); bottom: 1rem; border-radius: var(--radius-xl); }
-  .audio-bar-inner { padding: 0.6rem 0.9rem; }
+  .hero-headline { font-size: 2rem; }
+  .hero-stats-strip { flex-direction: column; gap: 0.5rem; border-radius: var(--radius-lg); }
+  .stat-separator { display: none; }
+  .apple-audio-bar { width: 92vw; min-width: auto; bottom: 1rem; }
 }

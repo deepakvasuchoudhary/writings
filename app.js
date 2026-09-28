@@ -112,8 +112,8 @@
   }
 
   function loadPreferences() {
-    // Theme - Default to Space Black Apple Pro look
-    const savedTheme = localStorage.getItem('sukhan_theme_v5') || 'midnight';
+    // Theme - Default to Obsidian Aurora (midnight)
+    const savedTheme = localStorage.getItem('sukhan_theme_v6') || 'midnight';
     state.theme = savedTheme;
     document.documentElement.setAttribute('data-theme', savedTheme);
 
@@ -202,23 +202,29 @@
   }
 
   function populateAlphabetFilter() {
-    // Unique initials in dictionary
+    // Unique initials in dictionary with counts
     const initials = new Set();
+    const counts = {};
     data.dictionary.forEach(w => {
-      if (w.initial_hi) initials.add(w.initial_hi);
+      if (w.initial_hi) {
+        initials.add(w.initial_hi);
+        counts[w.initial_hi] = (counts[w.initial_hi] || 0) + 1;
+      }
     });
 
     const sortedInitials = Array.from(initials).sort((a, b) => a.localeCompare(b, 'hi'));
 
     elements.devanagariAlphabet.innerHTML = `
-      <button class="letter-btn ${state.dictLetterFilter === 'all' ? 'active' : ''}" data-letter="all">सभी</button>
+      <button class="letter-btn ${state.dictLetterFilter === 'all' ? 'active' : ''}" data-letter="all">
+        <span>सभी</span> <span class="letter-count">${data.stats.total_words}</span>
+      </button>
     `;
 
     sortedInitials.forEach(char => {
       const btn = document.createElement('button');
       btn.className = `letter-btn ${state.dictLetterFilter === char ? 'active' : ''}`;
       btn.dataset.letter = char;
-      btn.textContent = char;
+      btn.innerHTML = `<span>${char}</span> <span class="letter-count">${counts[char]}</span>`;
       elements.devanagariAlphabet.appendChild(btn);
     });
   }
@@ -303,10 +309,9 @@
   }
 
   /**
-   * Create Poem Card adhering strictly to:
-   * Part 1: About Shayari & Shayar
-   * Part 2: The Poetry Itself
-   * Part 3: Meaning of Tough Words in this Shayari
+   * Create Poem Card:
+   * Modern Apple Studio Card with Stanzas, Radiant Chromatic Contrast,
+   * Collapsible Context Drawer, and Interactive Vocabulary Ribbon
    */
   function createPoemCard(poem) {
     const isFav = state.favorites.has(poem.id);
@@ -314,59 +319,68 @@
     card.className = 'shayari-card';
     card.id = `poem-${poem.id}`;
 
-    // Map difficult words for interactive highlighting in verses
-    const wordsMap = new Map();
-    poem.words.forEach(w => {
-      wordsMap.set(w.word.toLowerCase(), w);
-    });
+    // Monogram for poet avatar (first 2 letters)
+    const poetMonogram = poem.poet.name_hi.slice(0, 2);
 
-    // --- PART 1: About Shayari & Shayar ---
+    // --- ZONE 1: TOP ARTIST & CONTEXT STRIP ---
     const partAbout = `
       <section class="card-part-about">
         <div class="about-header">
           <div class="poet-badge">
-            <div class="poet-avatar">${poem.poet.name_hi[0] || 'श'}</div>
+            <div class="poet-avatar">${escapeHtml(poetMonogram)}</div>
             <div class="poet-meta">
               <h3>${escapeHtml(poem.poet.name_hi)}</h3>
               <span>${escapeHtml(poem.poet.name_en)}</span>
             </div>
           </div>
           <div class="card-meta-badges">
-            <span class="genre-badge" title="${escapeHtml(poem.genre.detail)}">${escapeHtml(poem.genre.category)}</span>
-            <span class="poem-num-badge">कलाम #${poem.id}</span>
+            <span class="genre-badge">${escapeHtml(poem.genre.category)}</span>
+            <span class="poem-num-badge">#${poem.id}</span>
           </div>
         </div>
 
-        <p class="about-text-content">${escapeHtml(poem.about)}</p>
-        
-        <div class="about-genre-detail">
-          <strong>विधा संदर्भ:</strong> ${escapeHtml(poem.genre.detail)}
+        <div class="poem-card-headline">
+          <h2 class="poem-headline-title">${escapeHtml(poem.title)}</h2>
+          <button class="context-drawer-btn" data-poem-id="${poem.id}">
+            <span>📖 कलाम परिचय व संदर्भ</span>
+            <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
         </div>
 
-        <div class="card-theme-tags">
-          ${poem.themes.map(t => `<span class="card-tag">#${escapeHtml(t)}</span>`).join('')}
+        <div class="poem-context-drawer">
+          <p class="about-text-content">${escapeHtml(poem.about)}</p>
+          <div class="about-genre-detail">
+            <strong>विधा संदर्भ:</strong> ${escapeHtml(poem.genre.detail)}
+          </div>
+          <div class="card-theme-tags">
+            ${poem.themes.map(t => `<span class="card-tag">#${escapeHtml(t)}</span>`).join('')}
+          </div>
         </div>
-
-        <button class="compact-toggle-btn" data-poem-id="${poem.id}">
-          <span>विस्तृत परिचय पढ़ें</span> &darr;
-        </button>
       </section>
     `;
 
-    // --- PART 2: The Poetry Itself ---
+    // --- ZONE 2: THE POETRY SANCTUARY (STANZAS WITH NUMBERING & CONTRAST) ---
     const formattedCoupletsHtml = poem.verses.couplets.map((couplet, cIdx) => {
-      const linesHtml = couplet.map((line, lIdx) => {
-        const highlightedLine = highlightDifficultWords(line, poem.words);
-        return `<span class="misra misra-${lIdx + 1}">${highlightedLine}</span>`;
-      }).join('');
-      return `<div class="couplet" data-couplet-idx="${cIdx}">${linesHtml}</div>`;
+      const line1 = couplet[0] ? highlightDifficultWords(couplet[0], poem.words) : '';
+      const line2 = couplet[1] ? highlightDifficultWords(couplet[1], poem.words) : '';
+      const numStr = String(cIdx + 1).padStart(2, '0');
+
+      return `
+        <div class="couplet-stanza" data-couplet-idx="${cIdx}">
+          <div class="couplet-index-badge">${numStr}</div>
+          <div class="couplet-lines">
+            <div class="misra misra-1">${line1}</div>
+            <div class="misra misra-2">${line2}</div>
+          </div>
+        </div>
+      `;
     }).join('');
 
     const partVerses = `
       <section class="card-part-verses">
         <div class="verses-watermark">”</div>
         <div class="verses-title-bar">
-          <span class="verses-heading">मुकम्मल पंक्तियाँ</span>
+          <span class="verses-heading">कलाम मुकम्मल</span>
           <div class="verses-actions">
             <button class="verse-action-btn listen-btn" data-poem-id="${poem.id}" title="सस्वर पाठ सुनें (Audio Recitation)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
@@ -389,7 +403,16 @@
       </section>
     `;
 
-    // --- PART 3: Meaning of Tough Words ---
+    // --- ZONE 3: INLINE SLEEK VOCABULARY RIBBON ---
+    const previewWords = poem.words.slice(0, 6);
+    const previewPillsHtml = previewWords.map(w => `
+      <button class="vocab-pill-btn" data-word="${escapeHtml(w.word)}" data-trans="${escapeHtml(w.transliteration)}" data-meaning="${escapeHtml(w.meaning)}" title="अर्थ देखें">
+        <span class="vp-term">${escapeHtml(w.word)}</span>
+        <span class="vp-sep">:</span>
+        <span class="vp-def">${escapeHtml(w.meaning)}</span>
+      </button>
+    `).join('');
+
     const wordsCardsHtml = poem.words.map(w => `
       <div class="word-card" data-word="${escapeHtml(w.word)}">
         <div class="word-card-top">
@@ -405,16 +428,26 @@
 
     const partWords = `
       <section class="card-part-words">
-        <div class="words-heading-bar">
-          <div class="words-heading">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-            <span>कठिन शब्दों के अर्थ</span>
+        <div class="vocab-ribbon-bar">
+          <div class="vocab-title">
+            <span class="vocab-sparkle">✨</span>
+            <span>लफ़्ज़-ओ-मा'नी</span>
+            <span class="vocab-badge">${poem.words.length} शब्द</span>
           </div>
-          <span class="words-count-tag">${poem.words.length} शब्द</span>
+          <button class="vocab-expand-toggle" data-poem-id="${poem.id}">
+            विस्तृत शब्दार्थ ↓
+          </button>
         </div>
 
-        <div class="words-grid">
-          ${wordsCardsHtml}
+        <div class="vocab-pills-row">
+          ${previewPillsHtml}
+          ${poem.words.length > 6 ? `<span class="vocab-more-hint">+${poem.words.length - 6} और शब्द</span>` : ''}
+        </div>
+
+        <div class="vocab-full-drawer">
+          <div class="vocab-drawer-grid">
+            ${wordsCardsHtml}
+          </div>
         </div>
       </section>
     `;
@@ -470,7 +503,29 @@
 
   function renderDictionaryList() {
     const list = getFilteredDictionary();
-    elements.dictCountText.textContent = `${data.stats.total_words} में से ${list.length} शब्द`;
+    const totalWords = data.stats.total_words;
+
+    // Check if filtering is active
+    const isFiltered = state.dictSearchQuery.trim() !== '' || state.dictLetterFilter !== 'all';
+    const alertEl = document.getElementById('dictFilterAlert');
+    const alertTextEl = document.getElementById('dictFilterAlertText');
+
+    if (alertEl && alertTextEl) {
+      if (isFiltered) {
+        alertEl.style.display = 'flex';
+        let filterDesc = '';
+        if (state.dictSearchQuery.trim()) filterDesc += `खोज: "${state.dictSearchQuery.trim()}"`;
+        if (state.dictLetterFilter !== 'all') {
+          if (filterDesc) filterDesc += ' • ';
+          filterDesc += `अक्षर: "${state.dictLetterFilter}"`;
+        }
+        alertTextEl.innerHTML = `फ़िल्टर सक्रिय (${filterDesc}) — <strong>${list.length}</strong> शब्द मिले (कुल संग्रह: ${totalWords} शब्द)`;
+      } else {
+        alertEl.style.display = 'none';
+      }
+    }
+
+    elements.dictCountText.textContent = `${totalWords} में से ${list.length} शब्द प्रदर्शित`;
 
     if (list.length === 0) {
       elements.dictionaryGrid.innerHTML = `
@@ -478,6 +533,7 @@
           <div class="empty-state-icon">📖</div>
           <h3 class="empty-state-title">कोई शब्द नहीं मिला</h3>
           <p class="empty-state-desc">आपके खोजे गए शब्द या चुने गए अक्षर के अनुसार कोई प्रविष्टि नहीं मिली।</p>
+          <button class="dict-reset-filter-btn" style="margin: 1rem auto; display: inline-flex;" onclick="window.sukhanResetDictFilters()">सभी ${totalWords} शब्द दिखाएं</button>
         </div>
       `;
       return;
@@ -935,25 +991,55 @@
     }
   }
 
+  // Reset all dictionary search and letter filters to show all 252 words
+  window.sukhanResetDictFilters = function() {
+    state.dictSearchQuery = '';
+    state.dictLetterFilter = 'all';
+    if (elements.dictSearchInput) elements.dictSearchInput.value = '';
+    if (elements.clearDictSearch) elements.clearDictSearch.style.display = 'none';
+    if (elements.devanagariAlphabet) {
+      elements.devanagariAlphabet.querySelectorAll('.letter-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.letter === 'all');
+      });
+    }
+    renderDictionaryList();
+  };
+
   // --- Event Listeners Setup ---
   function setupEventListeners() {
     // Navigation Tabs
     elements.navTabs.forEach(tab => {
       tab.addEventListener('click', () => {
-        switchTab(tab.dataset.tab);
-        if (tab.dataset.tab === 'tab-favorites') {
+        const targetTab = tab.dataset.tab;
+        if (targetTab === 'tab-dictionary') {
+          // Opening dictionary tab directly resets any previous word filter to show all 252 words!
+          window.sukhanResetDictFilters();
+        }
+        switchTab(targetTab);
+        if (targetTab === 'tab-favorites') {
           renderFavoritesList();
         }
       });
     });
 
-    // Theme Switcher
+    // Theme Switcher (Cycles: midnight -> velvet -> parchment -> midnight)
     elements.themeToggleBtn.addEventListener('click', () => {
-      const newTheme = state.theme === 'parchment' ? 'midnight' : 'parchment';
+      let newTheme = 'midnight';
+      let themeMsg = 'Obsidian Aurora सक्रिय 🌌';
+      if (state.theme === 'midnight') {
+        newTheme = 'velvet';
+        themeMsg = 'Imperial Velvet सक्रिय 🍷';
+      } else if (state.theme === 'velvet') {
+        newTheme = 'parchment';
+        themeMsg = 'Studio Pearl सक्रिय ☀️';
+      } else {
+        newTheme = 'midnight';
+        themeMsg = 'Obsidian Aurora सक्रिय 🌌';
+      }
       state.theme = newTheme;
       document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('sukhan_theme_v5', newTheme);
-      showToast(newTheme === 'parchment' ? 'Studio Silver सक्रिय ☀️' : 'Space Black सक्रिय 🌙');
+      localStorage.setItem('sukhan_theme_v6', newTheme);
+      showToast(themeMsg);
     });
 
     // Apple Audio Bar Controls
@@ -1162,6 +1248,47 @@
           card.classList.toggle('expanded');
           compactBtn.querySelector('span').textContent = card.classList.contains('expanded') ? 'परिचय संक्षिप्त करें' : 'विस्तृत परिचय पढ़ें';
         }
+        return;
+      }
+
+      // Context Drawer Toggle (Poem Story & Background)
+      const contextBtn = e.target.closest('.context-drawer-btn');
+      if (contextBtn) {
+        const card = contextBtn.closest('.shayari-card');
+        if (card) {
+          card.classList.toggle('context-open');
+          const isOpen = card.classList.contains('context-open');
+          const span = contextBtn.querySelector('span');
+          if (span) span.textContent = isOpen ? '📖 परिचय संक्षिप्त करें' : '📖 कलाम परिचय व संदर्भ';
+        }
+        return;
+      }
+
+      // Vocabulary Full Drawer Toggle
+      const vocabToggleBtn = e.target.closest('.vocab-expand-toggle');
+      if (vocabToggleBtn) {
+        const card = vocabToggleBtn.closest('.shayari-card');
+        if (card) {
+          card.classList.toggle('vocab-open');
+          const isOpen = card.classList.contains('vocab-open');
+          vocabToggleBtn.textContent = isOpen ? 'शब्दार्थ समेटें ↑' : 'विस्तृत शब्दार्थ ↓';
+        }
+        return;
+      }
+
+      // Vocabulary Micro-Pill Click (Show Definition Popover)
+      const vocabPillBtn = e.target.closest('.vocab-pill-btn');
+      if (vocabPillBtn) {
+        e.stopPropagation();
+        showWordTooltip(vocabPillBtn);
+        return;
+      }
+
+      // Reset Dictionary Filters Button
+      const resetDictBtn = e.target.closest('#dictResetFilterBtn');
+      if (resetDictBtn) {
+        window.sukhanResetDictFilters();
+        showToast('सभी 252 शब्द प्रदर्शित किए गए 📖');
         return;
       }
 
