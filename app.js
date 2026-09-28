@@ -112,8 +112,8 @@
   }
 
   function loadPreferences() {
-    // Theme - Default to Obsidian Aurora (midnight)
-    const savedTheme = localStorage.getItem('sukhan_theme_v6') || 'midnight';
+    // Theme - Default to Minimal Smoked Black (midnight)
+    const savedTheme = localStorage.getItem('sukhan_theme_v8') || 'midnight';
     state.theme = savedTheme;
     document.documentElement.setAttribute('data-theme', savedTheme);
 
@@ -1022,23 +1022,13 @@
       });
     });
 
-    // Theme Switcher (Cycles: midnight -> velvet -> parchment -> midnight)
+    // Theme Switcher (Clean 2-way: Minimal Smoked Black <-> Studio Parchment Light)
     elements.themeToggleBtn.addEventListener('click', () => {
-      let newTheme = 'midnight';
-      let themeMsg = 'Obsidian Aurora सक्रिय 🌌';
-      if (state.theme === 'midnight') {
-        newTheme = 'velvet';
-        themeMsg = 'Imperial Velvet सक्रिय 🍷';
-      } else if (state.theme === 'velvet') {
-        newTheme = 'parchment';
-        themeMsg = 'Studio Pearl सक्रिय ☀️';
-      } else {
-        newTheme = 'midnight';
-        themeMsg = 'Obsidian Aurora सक्रिय 🌌';
-      }
+      const newTheme = state.theme === 'midnight' ? 'parchment' : 'midnight';
+      const themeMsg = newTheme === 'midnight' ? 'डार्क मोड सक्रिय 🌙' : 'काग़ज़/लाइट मोड सक्रिय ☀️';
       state.theme = newTheme;
       document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('sukhan_theme_v6', newTheme);
+      localStorage.setItem('sukhan_theme_v8', newTheme);
       showToast(themeMsg);
     });
 
