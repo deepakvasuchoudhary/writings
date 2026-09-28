@@ -18,7 +18,7 @@
     dictSearchQuery: '',
     dictLetterFilter: 'all',
     favorites: new Set(),
-    theme: 'parchment',
+    theme: 'midnight',
     fontSize: 'normal',
     activeTooltipTerm: null
   };
@@ -113,7 +113,7 @@
 
   function loadPreferences() {
     // Theme
-    const savedTheme = localStorage.getItem('sukhan_theme') || 'parchment';
+    const savedTheme = localStorage.getItem('sukhan_theme') || 'midnight';
     state.theme = savedTheme;
     document.documentElement.setAttribute('data-theme', savedTheme);
 
