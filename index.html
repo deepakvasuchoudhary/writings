@@ -5,17 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>सुख़न &middot; कलाम — उर्दू शायरी, अफ़साने व मुकम्मल लुग़ात</title>
   <meta name="description" content="उर्दू शायरी, ग़ज़लें, नज़्में एवं कठिन शब्दों के अर्थ का समृद्ध व संवादात्मक डिजिटल संग्रह।">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Ambient Liquid Glass Mesh Background -->
+  <div class="liquid-bg" aria-hidden="true">
+    <div class="liquid-orb orb-1"></div>
+    <div class="liquid-orb orb-2"></div>
+    <div class="liquid-orb orb-3"></div>
+    <div class="liquid-orb orb-4"></div>
+  </div>
+
   <!-- Header / Navigation Bar -->
   <header class="site-header">
     <div class="header-container">
       <div class="brand-area">
-        <div class="brand-emblem">क</div>
+        <div class="brand-emblem">
+          <img src="favicon.svg" alt="सुख़न कलाम" class="brand-emblem-icon" width="44" height="44">
+        </div>
         <div class="brand-text">
           <h1 class="brand-title">सुख़न <span>कलाम</span></h1>
           <p class="brand-subtitle">उर्दू शायरी, कलाम व मुकम्मल लुग़ात संग्रह</p>
@@ -85,6 +97,7 @@
           <div class="search-input-wrapper">
             <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             <input type="text" id="shayariSearchInput" class="search-input" placeholder="शेर, शब्द, शायर, भाव या अर्थ खोजें... (e.g. अहमद फ़राज़, चिराग़, ग़ालिब, वफ़ा)">
+            <span class="search-kbd-shortcut" title="प्रेस ⌘K या Ctrl+K खोज के लिए"><kbd>⌘</kbd><kbd>K</kbd></span>
             <button id="clearShayariSearch" class="clear-search-btn" title="खोज साफ़ करें">&times;</button>
           </div>
           <div class="view-mode-toggle">

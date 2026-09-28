@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <!-- Background Liquid Mesh Gradient -->
+    <linearGradient id="bgLiquid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9F0A"/>
+      <stop offset="35%" stop-color="#FF375F"/>
+      <stop offset="70%" stop-color="#BF5AF2"/>
+      <stop offset="100%" stop-color="#5E5CE6"/>
+    </linearGradient>
+
+    <!-- Glass Specular Rim Highlight -->
+    <linearGradient id="specularRim" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="30%" stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="75%" stop-color="#FFFFFF" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+    </linearGradient>
+
+    <!-- Glass Top Sheen -->
+    <linearGradient id="glassSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Symbol Gold / Platinum Gradient -->
+    <linearGradient id="symbolGleam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#FFF8E7"/>
+      <stop offset="100%" stop-color="#FFE082"/>
+    </linearGradient>
+
+    <!-- Ambient Shadow Filter -->
+    <filter id="appleShadow" x="-15%" y="-15%" width="130%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#1A0B2E" flood-opacity="0.38"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#FF2D55" flood-opacity="0.25"/>
+    </filter>
+
+    <!-- Symbol Drop Shadow -->
+    <filter id="symbolShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <!-- Apple Continuous Squircle Background -->
+  <rect x="6" y="6" width="108" height="108" rx="26" ry="26" fill="url(#bgLiquid)" filter="url(#appleShadow)"/>
+
+  <!-- Liquid Glass Ambient Inner Glow -->
+  <rect x="7" y="7" width="106" height="106" rx="25" ry="25" fill="none" stroke="url(#specularRim)" stroke-width="1.8"/>
+
+  <!-- Liquid Glass Top Reflective Sheen Arc -->
+  <path d="M 6 32 C 6 17.64 17.64 6 32 6 L 88 6 C 102.36 6 114 17.64 114 32 C 114 42 78 54 60 54 C 42 54 6 42 6 32 Z" fill="url(#glassSheen)"/>
+
+  <!-- Artistic Poetry Quill & Devanagari "क" Emblem -->
+  <g filter="url(#symbolShadow)" fill="url(#symbolGleam)">
+    <!-- Elegant Stylized Devanagari 'क' with Calligraphic Nib Flair -->
+    <!-- Top Horizontal Shirorekha Bar -->
+    <rect x="31" y="34" width="58" height="5.5" rx="2.75"/>
+
+    <!-- Central Vertical Stem (Spine) -->
+    <rect x="57" y="34" width="6" height="52" rx="3"/>
+
+    <!-- Left Loop of 'क' (Softened Calligraphic Curve) -->
+    <path d="M 58 48 C 42 48 35 56 35 64 C 35 72 42 79 58 79 Z" 
+          fill="none" stroke="url(#symbolGleam)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Right Tail / Hook of 'क' (Descending with Poetry Quill Flourish) -->
+    <path d="M 61 58 C 74 56 84 60 84 69 C 84 76 78 81 72 83" 
+          fill="none" stroke="url(#symbolGleam)" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Celestial Quill Nib Sparkle / Accent -->
+    <circle cx="85" cy="40" r="3.2" fill="#FFFFFF"/>
+    <path d="M 85 33 L 86 38 L 91 39 L 86 40 L 85 45 L 84 40 L 79 39 L 84 38 Z" fill="#FFFFFF" opacity="0.9"/>
+  </g>
+</svg>

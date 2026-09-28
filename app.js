@@ -368,6 +368,10 @@
         <div class="verses-title-bar">
           <span class="verses-heading">मुकम्मल पंक्तियाँ</span>
           <div class="verses-actions">
+            <button class="verse-action-btn listen-btn" data-poem-id="${poem.id}" title="सस्वर पाठ सुनें (Audio Recitation)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <span>सुनें</span>
+            </button>
             <button class="verse-action-btn fav-btn ${isFav ? 'active' : ''}" data-poem-id="${poem.id}" title="${isFav ? 'पसंदीदा से हटाएं' : 'पसंदीदा में जोड़ें'}">
               <svg viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               <span>${isFav ? 'पसंदीदा' : 'सहेजें'}</span>
@@ -745,6 +749,88 @@
     });
   }
 
+  // --- Audio / Speech Recitation Feature (Apple Spoken Content) ---
+  let activeAudioPoemId = null;
+
+  function togglePoemAudio(poemId, btn) {
+    if (!('speechSynthesis' in window)) {
+      showToast('वाक्-संश्लेषण (Speech) समर्थित नहीं है');
+      return;
+    }
+
+    if (window.speechSynthesis.speaking && activeAudioPoemId === poemId) {
+      window.speechSynthesis.cancel();
+      stopPoemAudioUI();
+      showToast('सस्वर पाठ रोका गया');
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+    stopPoemAudioUI();
+
+    const poem = data.poems.find(p => p.id === poemId);
+    if (!poem) return;
+
+    activeAudioPoemId = poemId;
+    btn.classList.add('playing');
+    const btnSpan = btn.querySelector('span');
+    if (btnSpan) btnSpan.textContent = 'रोकें';
+    showToast('पाठ सुना जा रहा है... 🎙️');
+
+    const card = document.getElementById(`poem-${poemId}`);
+    const coupletElems = card ? card.querySelectorAll('.couplet') : [];
+
+    let currentIdx = 0;
+    const couplets = poem.verses.couplets;
+
+    function speakNextCouplet() {
+      if (currentIdx >= couplets.length || activeAudioPoemId !== poemId) {
+        stopPoemAudioUI();
+        return;
+      }
+
+      coupletElems.forEach((el, idx) => el.classList.toggle('speaking', idx === currentIdx));
+
+      const textToSpeak = couplets[currentIdx].join(' । ');
+      const utterance = new SpeechSynthesisUtterance(textToSpeak);
+      utterance.lang = 'hi-IN';
+      utterance.rate = 0.88;
+
+      const voices = window.speechSynthesis.getVoices();
+      const hindiVoice = voices.find(v => v.lang.startsWith('hi') || v.lang.startsWith('ur'));
+      if (hindiVoice) utterance.voice = hindiVoice;
+
+      utterance.onend = () => {
+        currentIdx++;
+        speakNextCouplet();
+      };
+
+      utterance.onerror = () => {
+        stopPoemAudioUI();
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    speakNextCouplet();
+  }
+
+  function stopPoemAudioUI() {
+    if (activeAudioPoemId) {
+      const card = document.getElementById(`poem-${activeAudioPoemId}`);
+      if (card) {
+        const btn = card.querySelector('.listen-btn');
+        if (btn) {
+          btn.classList.remove('playing');
+          const btnSpan = btn.querySelector('span');
+          if (btnSpan) btnSpan.textContent = 'सुनें';
+        }
+        card.querySelectorAll('.couplet').forEach(el => el.classList.remove('speaking'));
+      }
+      activeAudioPoemId = null;
+    }
+  }
+
   // --- Tooltip Logic ---
   function showWordTooltip(targetElement) {
     const word = targetElement.dataset.word;
@@ -991,6 +1077,14 @@
         return;
       }
 
+      // Audio Listen Button
+      const listenBtn = e.target.closest('.listen-btn');
+      if (listenBtn) {
+        const id = parseInt(listenBtn.dataset.poemId, 10);
+        togglePoemAudio(id, listenBtn);
+        return;
+      }
+
       // Copy Button
       const copyBtn = e.target.closest('.copy-btn');
       if (copyBtn) {
@@ -1050,11 +1144,35 @@
       }
     });
 
-    // Keyboard support
+    // Apple-style Keyboard Support (⌘K / Ctrl+K, Escape, Space/Enter in modal)
     document.addEventListener('keydown', (e) => {
+      // ⌘K or Ctrl+K for search focus
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        switchTab('tab-shayari');
+        elements.shayariSearchInput.focus();
+        elements.shayariSearchInput.select();
+        showToast('खोज सक्रिय 🔍');
+        return;
+      }
+
       if (e.key === 'Escape') {
         closeModal();
         hideWordTooltip();
+        stopPoemAudioUI();
+        if (document.activeElement === elements.shayariSearchInput || document.activeElement === elements.dictSearchInput) {
+          document.activeElement.blur();
+        }
+      }
+
+      // Space / Enter for next random couplet when Ittefaq modal is open
+      if (elements.ittefaqModal.classList.contains('open')) {
+        if (e.key === ' ' || e.key === 'Enter') {
+          // don't trigger if focus is on a button
+          if (document.activeElement && document.activeElement.tagName === 'BUTTON') return;
+          e.preventDefault();
+          showRandomPoemModal();
+        }
       }
     });
   }

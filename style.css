@@ -1,124 +1,206 @@
 /* ==========================================================================
-   SUKHAN &middot; KALAAM - STYLESHEET
-   Aesthetic typography, Parchment & Midnight themes, responsive design
+   SUKHAN · KALAAM — APPLE LIQUID GLASS DESIGN SYSTEM
+   Inspired by macOS Sequoia, visionOS, and iOS 18 Human Interface Guidelines
+   Crafted with Translucent Liquid Materials, Specular Light, and Dynamic Depth
    ========================================================================== */
 
-/* --- Design Tokens & Themes --- */
+/* --- Design Tokens & Apple Human Interface Foundations --- */
 :root {
-  /* Font Families */
-  --font-heading: 'Cinzel Decorative', 'Rozha One', Georgia, serif;
-  --font-poetry: 'Noto Serif Devanagari', 'Rozha One', serif;
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  /* Apple Font Stacks */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Plus Jakarta Sans", system-ui, -system-ui, sans-serif;
+  --font-poetry: 'Noto Serif Devanagari', 'Rozha One', Georgia, serif;
+  --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", 'Cinzel Decorative', 'Rozha One', serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
-  /* Sizing & Transitions */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  /* Apple Squircle Radii */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --radius-2xl: 34px;
   --radius-full: 9999px;
-  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Responsive Font Scaling */
+  /* Apple Springs & Easing Curves */
+  --apple-spring: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  --apple-spring-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --apple-spring-smooth: all 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  --apple-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition: var(--apple-spring);
+
+  /* Typography Scales */
   --base-size: 16px;
-  --poetry-size: 1.18rem;
-  --poetry-line-height: 2.1;
+  --poetry-size: 1.25rem;
+  --poetry-line-height: 2.2;
 }
 
 [data-fontsize="small"] {
   --base-size: 14px;
-  --poetry-size: 1.05rem;
-  --poetry-line-height: 1.95;
+  --poetry-size: 1.1rem;
+  --poetry-line-height: 2.05;
 }
 
 [data-fontsize="normal"] {
   --base-size: 16px;
-  --poetry-size: 1.18rem;
-  --poetry-line-height: 2.1;
+  --poetry-size: 1.25rem;
+  --poetry-line-height: 2.2;
 }
 
 [data-fontsize="large"] {
   --base-size: 18px;
-  --poetry-size: 1.34rem;
-  --poetry-line-height: 2.25;
+  --poetry-size: 1.42rem;
+  --poetry-line-height: 2.35;
 }
 
-/* Light / Parchment (काग़ज़) Theme */
+/* ==========================================================================
+   THEMES: LIGHT (LIQUID CRYSTAL FROST) & DARK (MIDNIGHT VISION GLASS)
+   ========================================================================== */
+
+/* Light Theme: Apple Liquid Crystal Frost */
 [data-theme="parchment"] {
-  --bg-body: #FAF7F0;
-  --bg-surface: #FFFFFF;
-  --bg-surface-alt: #F4EFE6;
-  --bg-card: #FFFFFF;
-  --bg-subtle: #F1EBE0;
-  --bg-hover: #ECE4D6;
-  --bg-accent-light: #FDF6EE;
+  --bg-body: #F4F4F7;
+  --bg-gradient-mesh: radial-gradient(at 0% 0%, rgba(224, 231, 255, 0.6) 0px, transparent 50%),
+                      radial-gradient(at 100% 0%, rgba(254, 226, 226, 0.6) 0px, transparent 50%),
+                      radial-gradient(at 100% 100%, rgba(254, 243, 199, 0.6) 0px, transparent 50%),
+                      radial-gradient(at 0% 100%, rgba(243, 232, 255, 0.6) 0px, transparent 50%);
 
-  --text-primary: #1C1917;
-  --text-secondary: #44403C;
-  --text-muted: #78716C;
-  --text-faint: #A8A29E;
+  /* Liquid Glass Surfaces */
+  --glass-surface: rgba(255, 255, 255, 0.72);
+  --glass-surface-elevated: rgba(255, 255, 255, 0.85);
+  --glass-surface-subtle: rgba(255, 255, 255, 0.52);
+  --glass-surface-hover: rgba(255, 255, 255, 0.92);
+  --glass-card: rgba(255, 255, 255, 0.75);
+  --glass-card-header: rgba(248, 248, 252, 0.65);
+  --glass-input: rgba(255, 255, 255, 0.6);
+  --glass-track: rgba(118, 118, 128, 0.12);
 
-  --accent-gold: #B45309;
-  --accent-gold-hover: #92400E;
-  --accent-crimson: #991B1B;
-  --accent-ink: #1E293B;
-  --accent-glow: rgba(180, 83, 9, 0.12);
+  /* Liquid Blurs */
+  --glass-blur: blur(28px) saturate(190%) contrast(100%);
+  --glass-blur-heavy: blur(40px) saturate(210%) contrast(105%);
+  --glass-blur-header: blur(34px) saturate(190%);
 
-  --border-color: #E7E0D3;
-  --border-light: #EFE8DC;
-  --border-focus: #B45309;
+  /* Dual Specular Borders (Liquid Edge Reflection) */
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --glass-border-subtle: rgba(0, 0, 0, 0.07);
+  --glass-border-focus: #0071E3;
+  --glass-specular: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.95), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
 
-  --shadow-sm: 0 1px 3px rgba(44, 38, 30, 0.05);
-  --shadow-md: 0 4px 14px rgba(44, 38, 30, 0.08);
-  --shadow-lg: 0 12px 28px rgba(44, 38, 30, 0.12);
+  /* Diffuse Spatial Drop Shadows */
+  --shadow-sm: 0 2px 8px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 12px 34px -8px rgba(30, 35, 50, 0.08), 0 4px 12px -2px rgba(30, 35, 50, 0.03);
+  --shadow-lg: 0 24px 60px -12px rgba(25, 30, 45, 0.14), 0 8px 24px -4px rgba(25, 30, 45, 0.05);
+  --shadow-modal: 0 32px 80px -16px rgba(15, 20, 35, 0.22), 0 12px 32px -4px rgba(15, 20, 35, 0.08);
 
-  --badge-genre-bg: #FEF3C7;
-  --badge-genre-text: #92400E;
-  --quote-watermark: rgba(180, 83, 9, 0.04);
+  /* Apple Typographic Hierarchy */
+  --text-primary: #1D1D1F;
+  --text-secondary: #48484A;
+  --text-muted: #86868B;
+  --text-faint: #AEAEC2;
+
+  /* Apple System Palette Accents */
+  --accent-gold: #C05621;
+  --accent-gold-hover: #9C4221;
+  --accent-blue: #0071E3;
+  --accent-blue-hover: #0077ED;
+  --accent-crimson: #FF3B30;
+  --accent-purple: #AF52DE;
+  --accent-glow: rgba(192, 86, 33, 0.16);
+  --accent-glow-subtle: rgba(192, 86, 33, 0.08);
+  --accent-gradient: linear-gradient(135deg, #DD6B20, #C05621);
+
+  /* Badges & Accents */
+  --badge-genre-bg: rgba(221, 107, 32, 0.12);
+  --badge-genre-text: #C05621;
+  --quote-watermark: rgba(0, 0, 0, 0.035);
+
+  /* Animated Liquid Mesh Orbs */
+  --orb-1: #FFD1DC;
+  --orb-2: #A0C4FF;
+  --orb-3: #FFE5B4;
+  --orb-4: #E2D9F3;
+  --orb-opacity: 0.65;
 }
 
-/* Dark / Midnight (शाम-ए-सुख़न) Theme */
+/* Dark Theme: Apple Midnight Vision Glass */
 [data-theme="midnight"] {
-  --bg-body: #0E0F14;
-  --bg-surface: #15161E;
-  --bg-surface-alt: #1C1D27;
-  --bg-card: #15161E;
-  --bg-subtle: #1F212D;
-  --bg-hover: #262937;
-  --bg-accent-light: #23201B;
+  --bg-body: #070709;
+  --bg-gradient-mesh: radial-gradient(at 0% 0%, rgba(76, 29, 149, 0.45) 0px, transparent 50%),
+                      radial-gradient(at 100% 0%, rgba(30, 58, 138, 0.45) 0px, transparent 50%),
+                      radial-gradient(at 100% 100%, rgba(131, 24, 67, 0.35) 0px, transparent 50%),
+                      radial-gradient(at 0% 100%, rgba(17, 94, 89, 0.35) 0px, transparent 50%);
 
-  --text-primary: #F3F1EC;
-  --text-secondary: #D1CFCA;
-  --text-muted: #93918C;
-  --text-faint: #605E5A;
+  /* Liquid Glass Surfaces */
+  --glass-surface: rgba(22, 23, 30, 0.68);
+  --glass-surface-elevated: rgba(30, 31, 42, 0.82);
+  --glass-surface-subtle: rgba(18, 19, 25, 0.55);
+  --glass-surface-hover: rgba(36, 38, 50, 0.88);
+  --glass-card: rgba(24, 25, 34, 0.72);
+  --glass-card-header: rgba(20, 21, 28, 0.65);
+  --glass-input: rgba(30, 32, 44, 0.65);
+  --glass-track: rgba(255, 255, 255, 0.1);
 
-  --accent-gold: #F59E0B;
+  /* Liquid Blurs */
+  --glass-blur: blur(32px) saturate(200%) contrast(105%);
+  --glass-blur-heavy: blur(48px) saturate(220%) contrast(110%);
+  --glass-blur-header: blur(36px) saturate(200%);
+
+  /* Dual Specular Borders */
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-border-subtle: rgba(255, 255, 255, 0.08);
+  --glass-border-focus: #2997FF;
+  --glass-specular: inset 0 1px 1px 0 rgba(255, 255, 255, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+
+  /* Diffuse Spatial Drop Shadows */
+  --shadow-sm: 0 2px 10px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 14px 42px -10px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow-lg: 0 28px 72px -12px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --shadow-modal: 0 40px 96px -16px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.14);
+
+  /* Apple Typographic Hierarchy */
+  --text-primary: #F5F5F7;
+  --text-secondary: #D1D1D6;
+  --text-muted: #8E8E93;
+  --text-faint: #636366;
+
+  /* Apple System Palette Accents */
+  --accent-gold: #F5A623;
   --accent-gold-hover: #FBBF24;
-  --accent-crimson: #F87171;
-  --accent-ink: #CBD5E1;
-  --accent-glow: rgba(245, 158, 11, 0.15);
+  --accent-blue: #2997FF;
+  --accent-blue-hover: #40A9FF;
+  --accent-crimson: #FF453A;
+  --accent-purple: #BF5AF2;
+  --accent-glow: rgba(245, 166, 35, 0.22);
+  --accent-glow-subtle: rgba(245, 166, 35, 0.12);
+  --accent-gradient: linear-gradient(135deg, #F5A623, #FBBF24);
 
-  --border-color: #272A38;
-  --border-light: #1F212D;
-  --border-focus: #F59E0B;
-
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.5);
-
-  --badge-genre-bg: #2C2417;
+  /* Badges & Accents */
+  --badge-genre-bg: rgba(245, 166, 35, 0.18);
   --badge-genre-text: #FBBF24;
-  --quote-watermark: rgba(245, 158, 11, 0.03);
+  --quote-watermark: rgba(255, 255, 255, 0.03);
+
+  /* Animated Liquid Mesh Orbs */
+  --orb-1: #581C87;
+  --orb-2: #1E3A8A;
+  --orb-3: #B45309;
+  --orb-4: #0F766E;
+  --orb-opacity: 0.45;
 }
 
-/* --- Base & Reset --- */
-* {
+/* ==========================================================================
+   BASE & RESET
+   ========================================================================== */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
   font-size: var(--base-size);
   scroll-behavior: smooth;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -129,8 +211,10 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
   overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  letter-spacing: -0.01em;
 }
 
 button {
@@ -138,6 +222,13 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+  outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+  transform: scale(0.97);
 }
 
 a {
@@ -145,26 +236,147 @@ a {
   text-decoration: none;
 }
 
-/* --- Header Styles --- */
+/* Custom Scrollbar for Apple Glass Feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 120, 128, 0.25);
+  border-radius: var(--radius-full);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 120, 128, 0.45);
+}
+
+/* ==========================================================================
+   AMBIENT LIQUID MESH BACKGROUND (THE "LIQUID" BEHIND THE GLASS)
+   ========================================================================== */
+.liquid-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--bg-gradient-mesh);
+  transition: background 0.8s ease;
+}
+
+.liquid-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(85px);
+  opacity: var(--orb-opacity);
+  will-change: transform;
+  mix-blend-mode: normal;
+  transition: opacity 0.8s ease;
+}
+
+.liquid-orb.orb-1 {
+  width: 55vw;
+  height: 55vw;
+  max-width: 650px;
+  max-height: 650px;
+  top: -10vw;
+  left: -10vw;
+  background: radial-gradient(circle, var(--orb-1) 0%, transparent 70%);
+  animation: floatOrb1 26s infinite alternate ease-in-out;
+}
+
+.liquid-orb.orb-2 {
+  width: 60vw;
+  height: 60vw;
+  max-width: 700px;
+  max-height: 700px;
+  top: 15vh;
+  right: -15vw;
+  background: radial-gradient(circle, var(--orb-2) 0%, transparent 70%);
+  animation: floatOrb2 30s infinite alternate ease-in-out;
+}
+
+.liquid-orb.orb-3 {
+  width: 50vw;
+  height: 50vw;
+  max-width: 600px;
+  max-height: 600px;
+  bottom: 5vh;
+  left: 10vw;
+  background: radial-gradient(circle, var(--orb-3) 0%, transparent 70%);
+  animation: floatOrb3 24s infinite alternate ease-in-out;
+}
+
+.liquid-orb.orb-4 {
+  width: 45vw;
+  height: 45vw;
+  max-width: 550px;
+  max-height: 550px;
+  bottom: -10vh;
+  right: 5vw;
+  background: radial-gradient(circle, var(--orb-4) 0%, transparent 70%);
+  animation: floatOrb4 28s infinite alternate ease-in-out;
+}
+
+@keyframes floatOrb1 {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(60px, 80px) scale(1.12) rotate(45deg); }
+  100% { transform: translate(-40px, 40px) scale(0.92) rotate(90deg); }
+}
+
+@keyframes floatOrb2 {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(-80px, 60px) scale(1.08) rotate(-45deg); }
+  100% { transform: translate(40px, -50px) scale(0.95) rotate(-90deg); }
+}
+
+@keyframes floatOrb3 {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(70px, -60px) scale(1.15) rotate(30deg); }
+  100% { transform: translate(-50px, -30px) scale(0.9) rotate(60deg); }
+}
+
+@keyframes floatOrb4 {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(-60px, -70px) scale(1.05) rotate(-30deg); }
+  100% { transform: translate(50px, 50px) scale(0.95) rotate(-60deg); }
+}
+
+/* ==========================================================================
+   FLOATING APPLE GLASS HEADER & TOP NAVIGATION
+   ========================================================================== */
 .site-header {
-  background-color: var(--bg-surface);
-  border-bottom: 1px solid var(--border-color);
   position: sticky;
-  top: 0;
-  z-index: 50;
-  box-shadow: var(--shadow-sm);
+  top: 1rem;
+  z-index: 80;
+  max-width: 1220px;
+  width: calc(100% - 2rem);
+  margin: 1rem auto 0;
+  border-radius: var(--radius-xl);
+  background: var(--glass-surface);
+  backdrop-filter: var(--glass-blur-header);
+  -webkit-backdrop-filter: var(--glass-blur-header);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-md), var(--glass-specular);
+  transition: var(--apple-spring);
+}
+
+.site-header:hover {
+  box-shadow: var(--shadow-lg), var(--glass-specular);
 }
 
 .header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0.85rem 1.5rem;
+  padding: 0.85rem 1.4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
+/* Apple Squircle Brand Area */
 .brand-area {
   display: flex;
   align-items: center;
@@ -174,89 +386,133 @@ a {
 .brand-emblem {
   width: 44px;
   height: 44px;
-  background: linear-gradient(135deg, var(--accent-gold), #78350F);
-  color: #FFF;
-  border-radius: var(--radius-md);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-poetry);
-  font-size: 1.6rem;
-  font-weight: 700;
-  box-shadow: 0 2px 8px var(--accent-glow);
   flex-shrink: 0;
+  position: relative;
+  transition: var(--apple-spring);
+}
+
+.brand-emblem-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  display: block;
+  filter: drop-shadow(0 3px 10px rgba(255, 45, 85, 0.35));
+  transition: var(--apple-spring);
+}
+
+.brand-emblem:hover .brand-emblem-icon {
+  transform: rotate(5deg) scale(1.06);
+  filter: drop-shadow(0 6px 16px rgba(255, 45, 85, 0.45));
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .brand-title {
-  font-family: var(--font-poetry);
-  font-size: 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 1.32rem;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.03em;
   color: var(--text-primary);
-  line-height: 1.2;
+  line-height: 1.15;
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
 }
 
 .brand-title span {
   color: var(--accent-gold);
   font-weight: 600;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .brand-subtitle {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   color: var(--text-muted);
   font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
+/* Header Controls & Glass Action Buttons */
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
 .action-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.5rem 0.9rem;
-  border-radius: var(--radius-md);
-  font-size: 0.85rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius-full);
+  font-size: 0.84rem;
   font-weight: 600;
-  transition: var(--transition);
+  letter-spacing: -0.01em;
+  background: var(--glass-surface-subtle);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-sm), var(--glass-specular);
+  transition: var(--apple-spring);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.action-btn:hover {
+  background: var(--glass-surface-hover);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md), var(--glass-specular);
 }
 
 .btn-ittefaq {
-  background-color: var(--bg-surface-alt);
+  background: rgba(var(--accent-gold), 0.12);
   color: var(--accent-gold);
-  border: 1px solid var(--border-color);
+  border-color: rgba(var(--accent-gold), 0.25);
 }
 
 .btn-ittefaq:hover {
-  background-color: var(--bg-hover);
-  border-color: var(--accent-gold);
+  background: var(--accent-gradient);
+  color: #FFF;
+  border-color: transparent;
+  box-shadow: 0 4px 16px var(--accent-glow), inset 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
 .btn-ittefaq .icon {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
+  transition: transform 0.4s ease;
 }
 
-/* Font Size Controls */
+.btn-ittefaq:hover .icon {
+  transform: rotate(180deg);
+}
+
+/* Apple Segmented Control: Font Size */
 .font-controls {
   display: flex;
   align-items: center;
-  background-color: var(--bg-surface-alt);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 2px;
+  background: var(--glass-track);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  border: 1px solid var(--glass-border-subtle);
 }
 
 .font-size-btn {
-  padding: 0.35rem 0.6rem;
-  font-size: 0.8rem;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: var(--text-muted);
-  border-radius: var(--radius-sm);
-  transition: var(--transition);
+  border-radius: var(--radius-full);
+  transition: var(--apple-spring-fast);
 }
 
 .font-size-btn:hover {
@@ -264,21 +520,25 @@ a {
 }
 
 .font-size-btn.active {
-  background-color: var(--bg-surface);
-  color: var(--accent-gold);
-  box-shadow: var(--shadow-sm);
-}
-
-/* Theme Toggle */
-.theme-toggle {
-  background-color: var(--bg-surface-alt);
+  background: var(--glass-surface-elevated);
   color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  padding: 0.5rem 0.8rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12), var(--glass-specular);
 }
 
-.theme-toggle:hover {
-  background-color: var(--bg-hover);
+/* Theme Toggle Button */
+.theme-toggle {
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-full);
+}
+
+.theme-icon {
+  font-size: 1rem;
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-toggle:hover .theme-icon {
+  transform: rotate(20deg) scale(1.15);
 }
 
 .light-icon {
@@ -295,18 +555,21 @@ a {
   display: none;
 }
 
-/* Navigation Tabs */
+/* ==========================================================================
+   APPLE SEGMENTED TAB BAR (NAVIGATION)
+   ========================================================================== */
 .main-nav {
-  background-color: var(--bg-surface);
-  border-top: 1px solid var(--border-light);
+  border-top: 1px solid var(--glass-border-subtle);
+  padding: 0.35rem 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
 }
 
 .nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.4rem;
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -319,121 +582,180 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.8rem 1.1rem;
-  font-size: 0.92rem;
+  padding: 0.55rem 1.05rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--text-muted);
-  border-bottom: 2px solid transparent;
+  border-radius: var(--radius-full);
   white-space: nowrap;
-  transition: var(--transition);
+  transition: var(--apple-spring);
+  position: relative;
 }
 
 .nav-tab:hover {
   color: var(--text-primary);
+  background: var(--glass-track);
 }
 
 .nav-tab.active {
-  color: var(--accent-gold);
-  border-bottom-color: var(--accent-gold);
+  color: var(--text-primary);
+  background: var(--glass-surface-elevated);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08), var(--glass-specular);
 }
 
 .tab-icon {
-  width: 17px;
-  height: 17px;
+  width: 16px;
+  height: 16px;
+  transition: var(--apple-spring-fast);
+}
+
+.nav-tab.active .tab-icon {
+  color: var(--accent-gold);
+  transform: scale(1.1);
 }
 
 .badge {
-  background-color: var(--bg-surface-alt);
+  background: var(--glass-track);
   color: var(--text-secondary);
   font-size: 0.72rem;
-  padding: 0.15rem 0.5rem;
+  padding: 0.1rem 0.5rem;
   border-radius: var(--radius-full);
   font-weight: 700;
+  transition: var(--apple-spring-fast);
 }
 
 .nav-tab.active .badge {
-  background-color: var(--badge-genre-bg);
+  background: var(--badge-genre-bg);
   color: var(--badge-genre-text);
 }
 
 .badge-fav {
-  background-color: var(--accent-crimson);
+  background: var(--accent-crimson);
   color: #FFF;
 }
 
-/* --- Main Content Layout --- */
+/* ==========================================================================
+   MAIN CONTENT CONTAINER
+   ========================================================================== */
 .main-content {
   flex: 1;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 1.75rem 1.5rem 4rem;
+  max-width: 1220px;
+  width: calc(100% - 2rem);
+  margin: 1.5rem auto 4rem;
+  position: relative;
+  z-index: 10;
 }
 
 .tab-pane {
   display: none;
-  animation: fadeIn 0.3s ease;
+  animation: appleFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tab-pane.active {
   display: block;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes appleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-/* --- Filter Panel --- */
+/* ==========================================================================
+   FILTER & SPOTLIGHT SEARCH PANEL (APPLE SPOTLIGHT AESTHETIC)
+   ========================================================================== */
 .filter-panel {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem 1.5rem;
+  background: var(--glass-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 1.35rem 1.6rem;
   margin-bottom: 2rem;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md), var(--glass-specular);
+  transition: var(--apple-spring);
+}
+
+.filter-panel:hover {
+  box-shadow: var(--shadow-lg), var(--glass-specular);
 }
 
 .search-row {
   display: flex;
   gap: 1rem;
   align-items: center;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.25rem;
 }
 
 .search-input-wrapper {
   position: relative;
   flex: 1;
+  display: flex;
+  align-items: center;
 }
 
 .search-icon {
   position: absolute;
-  left: 1rem;
+  left: 1.1rem;
   top: 50%;
   transform: translateY(-50%);
   width: 18px;
   height: 18px;
   color: var(--text-muted);
   pointer-events: none;
+  transition: var(--apple-spring-fast);
 }
 
 .search-input {
   width: 100%;
-  padding: 0.75rem 2.6rem 0.75rem 2.6rem;
+  padding: 0.8rem 5rem 0.8rem 2.85rem;
   font-size: 0.95rem;
   font-family: inherit;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--glass-border-subtle);
   border-radius: var(--radius-md);
-  background-color: var(--bg-surface-alt);
+  background: var(--glass-input);
   color: var(--text-primary);
-  transition: var(--transition);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: var(--apple-spring);
+  backdrop-filter: var(--glass-blur);
 }
 
 .search-input:focus {
   outline: none;
   border-color: var(--accent-gold);
-  background-color: var(--bg-surface);
-  box-shadow: 0 0 0 3px var(--accent-glow);
+  background: var(--glass-surface-elevated);
+  box-shadow: 0 0 0 3.5px var(--accent-glow), var(--glass-specular);
+}
+
+.search-input:focus + .search-icon {
+  color: var(--accent-gold);
+}
+
+.search-kbd-shortcut {
+  position: absolute;
+  right: 2.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 2px;
+  pointer-events: none;
+}
+
+.search-kbd-shortcut kbd {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--glass-surface-subtle);
+  border: 1px solid var(--glass-border);
+  padding: 2px 5px;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .clear-search-btn {
@@ -441,35 +763,43 @@ a {
   right: 0.8rem;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.2rem;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--glass-track);
   color: var(--text-muted);
-  padding: 0.2rem 0.4rem;
-  line-height: 1;
   display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1;
+  transition: var(--apple-spring-fast);
 }
 
 .clear-search-btn:hover {
-  color: var(--text-primary);
+  background: var(--text-muted);
+  color: #FFF;
 }
 
+/* View Mode Segmented Switch */
 .view-mode-toggle {
   display: flex;
-  background-color: var(--bg-surface-alt);
-  border: 1px solid var(--border-color);
+  background: var(--glass-track);
   border-radius: var(--radius-md);
-  padding: 2px;
+  padding: 3px;
+  border: 1px solid var(--glass-border-subtle);
 }
 
 .view-btn {
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.45rem 0.75rem;
-  font-size: 0.8rem;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--text-muted);
   border-radius: var(--radius-sm);
-  transition: var(--transition);
+  transition: var(--apple-spring-fast);
 }
 
 .view-btn svg {
@@ -477,30 +807,34 @@ a {
   height: 15px;
 }
 
-.view-btn.active {
-  background-color: var(--bg-surface);
-  color: var(--accent-gold);
-  box-shadow: var(--shadow-sm);
+.view-btn:hover {
+  color: var(--text-primary);
 }
 
-/* Filters Row */
+.view-btn.active {
+  background: var(--glass-surface-elevated);
+  color: var(--text-primary);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), var(--glass-specular);
+}
+
+/* Dropdown Filters Grid */
 .filters-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.1rem;
+  margin-bottom: 1.15rem;
 }
 
 .filter-group {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.4rem;
 }
 
 .filter-label {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-secondary);
@@ -513,20 +847,24 @@ a {
 }
 
 .filter-select {
-  padding: 0.6rem 0.85rem;
+  padding: 0.65rem 0.95rem;
   font-size: 0.88rem;
   font-family: inherit;
-  border: 1px solid var(--border-color);
+  font-weight: 500;
+  border: 1px solid var(--glass-border-subtle);
   border-radius: var(--radius-md);
-  background-color: var(--bg-surface-alt);
+  background: var(--glass-input);
   color: var(--text-primary);
-  transition: var(--transition);
+  transition: var(--apple-spring);
   cursor: pointer;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .filter-select:focus {
   outline: none;
   border-color: var(--accent-gold);
+  background: var(--glass-surface-elevated);
+  box-shadow: 0 0 0 3px var(--accent-glow), var(--glass-specular);
 }
 
 /* Theme Chips */
@@ -534,7 +872,7 @@ a {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.1rem;
   flex-wrap: wrap;
 }
 
@@ -552,36 +890,39 @@ a {
 }
 
 .theme-chip {
-  padding: 0.28rem 0.7rem;
+  padding: 0.32rem 0.75rem;
   border-radius: var(--radius-full);
   font-size: 0.78rem;
   font-weight: 500;
-  background-color: var(--bg-surface-alt);
+  background: var(--glass-surface-subtle);
   color: var(--text-secondary);
-  border: 1px solid var(--border-color);
-  transition: var(--transition);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-sm), var(--glass-specular);
+  transition: var(--apple-spring);
   cursor: pointer;
 }
 
 .theme-chip:hover {
-  border-color: var(--accent-gold);
+  background: var(--glass-surface-hover);
   color: var(--accent-gold);
+  transform: translateY(-1px);
 }
 
 .theme-chip.active {
-  background-color: var(--accent-gold);
+  background: var(--accent-gradient);
   color: #FFF;
-  border-color: var(--accent-gold);
+  border-color: transparent;
+  box-shadow: 0 3px 12px var(--accent-glow), inset 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
-/* Active Filters */
+/* Active Filters Indicator */
 .active-filters-bar {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  padding-top: 0.75rem;
-  border-top: 1px dashed var(--border-color);
-  margin-bottom: 0.75rem;
+  gap: 0.65rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--glass-border-subtle);
+  margin-bottom: 0.85rem;
   flex-wrap: wrap;
 }
 
@@ -594,34 +935,45 @@ a {
 .active-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .filter-tag {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.2rem 0.6rem;
+  gap: 0.4rem;
+  padding: 0.25rem 0.7rem;
   border-radius: var(--radius-full);
-  background-color: var(--badge-genre-bg);
+  background: var(--badge-genre-bg);
   color: var(--badge-genre-text);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 600;
+  border: 1px solid rgba(var(--accent-gold), 0.2);
 }
 
 .filter-tag-remove {
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1;
+  opacity: 0.7;
+}
+
+.filter-tag-remove:hover {
+  opacity: 1;
 }
 
 .reset-filters-btn {
   margin-left: auto;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--accent-crimson);
-  text-decoration: underline;
-  padding: 0.2rem 0.4rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: var(--apple-spring-fast);
+}
+
+.reset-filters-btn:hover {
+  background: rgba(255, 59, 48, 0.1);
 }
 
 /* Status Bar */
@@ -631,59 +983,67 @@ a {
   justify-content: space-between;
   font-size: 0.82rem;
   color: var(--text-muted);
-  padding-top: 0.6rem;
-  border-top: 1px solid var(--border-light);
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--glass-border-subtle);
 }
 
 .read-hint {
   color: var(--accent-gold);
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 /* ==========================================================================
-   SHAYARI CARD - STRICT 3-PART STRUCTURE
-   Part 1: About Shayar & Shayari
-   Part 2: मुकम्मल पंक्तियाँ / Poetry Itself
-   Part 3: कठिन शब्दों के अर्थ / Tough Words Meanings
+   SHAYARI CARD — APPLE VISION / MACOS LIQUID GLASS TILE
+   Part 1: About Shayari & Shayar
+   Part 2: The Poetry Itself (मुकम्मल पंक्तियाँ)
+   Part 3: Meaning of Tough Words (कठिन शब्दों के अर्थ)
    ========================================================================== */
 .shayari-container {
   display: flex;
   flex-direction: column;
-  gap: 2.25rem;
+  gap: 2.5rem;
 }
 
 .shayari-card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  background: var(--glass-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md), var(--glass-specular);
   overflow: hidden;
-  transition: var(--transition);
+  transition: var(--apple-spring);
   position: relative;
+  will-change: transform, box-shadow;
 }
 
 .shayari-card:hover {
-  box-shadow: var(--shadow-md);
-  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  border-color: var(--glass-border);
 }
 
 .shayari-card.highlighted {
   border-color: var(--accent-gold);
-  box-shadow: 0 0 0 3px var(--accent-glow), var(--shadow-lg);
-  animation: pulseHighlight 1.5s ease;
+  box-shadow: 0 0 0 4px var(--accent-glow), var(--shadow-lg);
+  animation: applePulseHighlight 1.5s ease;
 }
 
-@keyframes pulseHighlight {
+@keyframes applePulseHighlight {
   0% { transform: scale(1); }
-  50% { transform: scale(1.01); }
+  50% { transform: scale(1.015); }
   100% { transform: scale(1); }
 }
 
 /* --- PART 1: ABOUT SHAYARI & SHAYAR --- */
 .card-part-about {
-  padding: 1.4rem 1.6rem 1.2rem;
-  background-color: var(--bg-surface-alt);
-  border-bottom: 1px solid var(--border-color);
+  padding: 1.45rem 1.85rem 1.3rem;
+  background: var(--glass-card-header);
+  border-bottom: 1px solid var(--glass-border-subtle);
+  position: relative;
 }
 
 .about-header {
@@ -691,41 +1051,53 @@ a {
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.95rem;
 }
 
 .poet-badge {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.9rem;
 }
 
 .poet-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius-full);
-  background: linear-gradient(135deg, var(--accent-gold), #78350F);
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #FF9500 0%, #FF2D55 100%);
   color: #FFF;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-poetry);
-  font-size: 1.3rem;
+  font-size: 1.45rem;
   font-weight: 700;
+  box-shadow: 0 4px 12px rgba(255, 45, 85, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.5);
   flex-shrink: 0;
-  box-shadow: 0 2px 6px var(--accent-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+.poet-avatar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.35), transparent);
 }
 
 .poet-meta h3 {
   font-family: var(--font-poetry);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.2;
 }
 
 .poet-meta span {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
   font-weight: 500;
 }
@@ -733,78 +1105,86 @@ a {
 .card-meta-badges {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   flex-wrap: wrap;
 }
 
 .genre-badge {
-  padding: 0.25rem 0.75rem;
+  padding: 0.28rem 0.85rem;
   border-radius: var(--radius-full);
-  background-color: var(--badge-genre-bg);
+  background: var(--badge-genre-bg);
   color: var(--badge-genre-text);
   font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(var(--accent-gold), 0.15);
 }
 
 .poem-num-badge {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   font-weight: 600;
+  background: var(--glass-surface-subtle);
+  padding: 0.28rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--glass-border);
 }
 
 .about-text-content {
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   color: var(--text-secondary);
-  line-height: 1.75;
-  margin-bottom: 0.75rem;
+  line-height: 1.8;
+  margin-bottom: 0.85rem;
   font-family: var(--font-poetry);
 }
 
 .about-genre-detail {
   font-size: 0.88rem;
   color: var(--text-muted);
-  line-height: 1.6;
-  background-color: var(--bg-surface);
+  line-height: 1.65;
+  background: var(--glass-surface-subtle);
   border-left: 3px solid var(--accent-gold);
-  padding: 0.5rem 0.85rem;
+  padding: 0.55rem 0.95rem;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
+  border: 1px solid var(--glass-border-subtle);
+  border-left-width: 3px;
 }
 
 .about-genre-detail strong {
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .card-theme-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .card-tag {
   font-size: 0.74rem;
-  padding: 0.18rem 0.6rem;
+  font-weight: 500;
+  padding: 0.2rem 0.65rem;
   border-radius: var(--radius-full);
-  background-color: var(--bg-surface);
+  background: var(--glass-surface-subtle);
   color: var(--text-secondary);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--glass-border);
 }
 
 /* --- PART 2: THE POETRY ITSELF (मुकम्मल पंक्तियाँ) --- */
 .card-part-verses {
-  padding: 2rem 2.25rem 1.75rem;
+  padding: 2.25rem 2.5rem 2rem;
   position: relative;
-  background-color: var(--bg-card);
+  background: transparent;
 }
 
 .verses-watermark {
   position: absolute;
-  top: 1.5rem;
-  right: 2rem;
+  top: 1.25rem;
+  right: 2.25rem;
   font-family: var(--font-heading);
-  font-size: 5rem;
+  font-size: 6rem;
   line-height: 1;
   color: var(--quote-watermark);
   user-select: none;
@@ -815,49 +1195,61 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--glass-border-subtle);
 }
 
 .verses-heading {
-  font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   color: var(--accent-gold);
 }
 
 .verses-actions {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
 }
 
 .verse-action-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.35rem 0.65rem;
-  border-radius: var(--radius-md);
-  font-size: 0.78rem;
+  gap: 0.4rem;
+  padding: 0.42rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
   font-weight: 600;
-  color: var(--text-muted);
-  border: 1px solid var(--border-color);
-  background-color: var(--bg-surface-alt);
-  transition: var(--transition);
+  color: var(--text-secondary);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-surface-subtle);
+  box-shadow: var(--shadow-sm), var(--glass-specular);
+  transition: var(--apple-spring);
+  backdrop-filter: var(--glass-blur);
 }
 
 .verse-action-btn:hover {
-  color: var(--accent-gold);
-  border-color: var(--accent-gold);
+  color: var(--text-primary);
+  background: var(--glass-surface-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md), var(--glass-specular);
 }
 
 .verse-action-btn.fav-btn.active {
-  color: var(--accent-crimson);
-  border-color: var(--accent-crimson);
-  background-color: var(--bg-surface);
+  color: #FFF;
+  border-color: transparent;
+  background: linear-gradient(135deg, #FF453A, #FF2D55);
+  box-shadow: 0 4px 14px rgba(255, 45, 85, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.verse-action-btn.listen-btn.playing {
+  color: #FFF;
+  border-color: transparent;
+  background: var(--accent-gradient);
+  box-shadow: 0 4px 14px var(--accent-glow), inset 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
 .verse-action-btn svg {
@@ -872,19 +1264,26 @@ a {
   line-height: var(--poetry-line-height);
   color: var(--text-primary);
   text-align: center;
-  max-width: 820px;
+  max-width: 840px;
   margin: 0 auto;
 }
 
 .couplet {
-  margin-bottom: 1.4rem;
-  padding: 0.6rem 0.8rem;
-  border-radius: var(--radius-md);
-  transition: var(--transition);
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-lg);
+  transition: var(--apple-spring);
+  position: relative;
 }
 
 .couplet:hover {
-  background-color: var(--bg-accent-light);
+  background: var(--accent-glow-subtle);
+  box-shadow: 0 4px 20px var(--accent-glow-subtle);
+}
+
+.couplet.speaking {
+  background: var(--accent-glow);
+  box-shadow: 0 0 0 2px var(--accent-gold);
 }
 
 .couplet:last-child {
@@ -904,48 +1303,47 @@ a {
   font-weight: 500;
 }
 
-.stanza-line {
-  display: block;
-}
-
 /* Interactive Glossary Terms in Poetry */
 .glossary-term {
-  border-bottom: 2px dotted var(--accent-gold);
+  border-bottom: 2px solid var(--accent-gold);
   color: var(--text-primary);
   font-weight: 600;
   cursor: pointer;
-  padding: 0 2px;
-  border-radius: 2px;
-  transition: var(--transition);
+  padding: 1px 5px;
+  border-radius: 6px;
+  background: var(--accent-glow-subtle);
+  transition: var(--apple-spring-fast);
   position: relative;
+  display: inline-block;
 }
 
 .glossary-term:hover {
-  background-color: var(--accent-glow);
-  color: var(--accent-gold);
-  border-bottom-style: solid;
+  background: var(--accent-gold);
+  color: #FFF !important;
+  box-shadow: 0 2px 8px var(--accent-glow);
+  transform: translateY(-1px);
 }
 
 /* --- PART 3: MEANING OF TOUGH WORDS (कठिन शब्दों के अर्थ) --- */
 .card-part-words {
-  padding: 1.4rem 1.6rem 1.6rem;
-  background-color: var(--bg-surface-alt);
-  border-top: 1px solid var(--border-color);
+  padding: 1.45rem 1.85rem 1.75rem;
+  background: var(--glass-card-header);
+  border-top: 1px solid var(--glass-border-subtle);
 }
 
 .words-heading-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.2rem;
 }
 
 .words-heading {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   font-family: var(--font-poetry);
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -957,37 +1355,39 @@ a {
 }
 
 .words-count-tag {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
   font-weight: 600;
-  background-color: var(--bg-surface);
-  padding: 0.2rem 0.55rem;
+  background: var(--glass-surface-subtle);
+  padding: 0.25rem 0.65rem;
   border-radius: var(--radius-full);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--glass-border);
 }
 
 .words-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0.85rem;
+  gap: 0.95rem;
 }
 
 .word-card {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
-  padding: 0.85rem 1rem;
-  transition: var(--transition);
+  padding: 0.95rem 1.15rem;
+  transition: var(--apple-spring);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: 0.55rem;
+  box-shadow: var(--shadow-sm), var(--glass-specular);
 }
 
 .word-card:hover {
-  border-color: var(--accent-gold);
-  box-shadow: var(--shadow-sm);
   transform: translateY(-2px);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-md), var(--glass-specular);
+  background: var(--glass-surface-hover);
 }
 
 .word-card-top {
@@ -999,43 +1399,43 @@ a {
 
 .word-term {
   font-family: var(--font-poetry);
-  font-size: 1.08rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--accent-gold);
 }
 
 .word-trans {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-style: italic;
   color: var(--text-muted);
 }
 
 .word-meaning {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .word-dict-link {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: var(--accent-gold);
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.3rem;
   align-self: flex-start;
   margin-top: 0.25rem;
-  transition: var(--transition);
+  transition: var(--apple-spring-fast);
 }
 
 .word-dict-link:hover {
   color: var(--accent-gold-hover);
-  text-decoration: underline;
+  transform: translateX(2px);
 }
 
 /* Compact View Mode Adjustments */
 .compact-view .card-part-about {
-  padding: 0.9rem 1.25rem;
+  padding: 1rem 1.4rem;
 }
 
 .compact-view .about-text-content,
@@ -1055,36 +1455,43 @@ a {
 .compact-view .compact-toggle-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.35rem;
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--accent-gold);
-  padding: 0.3rem 0.6rem;
-  border-radius: var(--radius-sm);
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: var(--glass-surface-subtle);
+  border: 1px solid var(--glass-border);
   margin-top: 0.5rem;
+  transition: var(--apple-spring-fast);
+}
+
+.compact-view .compact-toggle-btn:hover {
+  background: var(--glass-surface-hover);
 }
 
 /* ==========================================================================
-   TAB 2: DICTIONARY / LUGHAT STYLES
+   TAB 2: DICTIONARY / LUGHAT (APPLE BOOKS STYLE)
    ========================================================================== */
 .dictionary-header {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem 1.75rem;
+  background: var(--glass-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem 2rem;
   margin-bottom: 2rem;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md), var(--glass-specular);
 }
 
 .dict-intro {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
 }
 
 .dict-title {
   font-family: var(--font-poetry);
-  font-size: 1.75rem;
+  font-size: 1.85rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 0.35rem;
@@ -1092,99 +1499,105 @@ a {
 
 .dict-title span {
   color: var(--accent-gold);
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 600;
 }
 
 .dict-subtitle {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 .dict-search-wrapper {
   position: relative;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
 }
 
-/* Alphabet Filter */
+/* Devanagari Alphabet Filter Bar */
 .alphabet-filter-container {
   overflow-x: auto;
   scrollbar-width: thin;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.6rem;
   margin-bottom: 1rem;
 }
 
 .alphabet-row {
   display: flex;
-  gap: 0.35rem;
+  gap: 0.4rem;
   min-width: max-content;
 }
 
 .letter-btn {
-  min-width: 32px;
-  height: 32px;
-  padding: 0 0.4rem;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 0.5rem;
   border-radius: var(--radius-sm);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  background-color: var(--bg-surface-alt);
+  background: var(--glass-surface-subtle);
   color: var(--text-secondary);
-  border: 1px solid var(--border-color);
-  transition: var(--transition);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-sm), var(--glass-specular);
+  transition: var(--apple-spring);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .letter-btn:hover {
-  border-color: var(--accent-gold);
+  background: var(--glass-surface-hover);
   color: var(--accent-gold);
+  transform: translateY(-1px);
 }
 
 .letter-btn.active {
-  background-color: var(--accent-gold);
+  background: var(--accent-gradient);
   color: #FFF;
-  border-color: var(--accent-gold);
+  border-color: transparent;
+  box-shadow: 0 3px 12px var(--accent-glow), inset 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
 .dict-status-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--border-light);
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--glass-border-subtle);
 }
 
 .dict-hint {
   color: var(--text-muted);
 }
 
-/* Dictionary Grid */
+/* Dictionary Grid & Cards */
 .dictionary-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 1.35rem;
 }
 
 .dict-card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.2rem 1.4rem;
-  box-shadow: var(--shadow-sm);
+  background: var(--glass-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem 1.55rem;
+  box-shadow: var(--shadow-md), var(--glass-specular);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 0.85rem;
-  transition: var(--transition);
+  gap: 0.95rem;
+  transition: var(--apple-spring);
 }
 
 .dict-card:hover {
+  transform: translateY(-3px);
   border-color: var(--accent-gold);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg), var(--glass-specular);
 }
 
 .dict-card-top {
@@ -1192,43 +1605,45 @@ a {
   align-items: baseline;
   justify-content: space-between;
   gap: 0.5rem;
-  border-bottom: 1px solid var(--border-light);
-  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--glass-border-subtle);
+  padding-bottom: 0.65rem;
 }
 
 .dict-word {
   font-family: var(--font-poetry);
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: var(--accent-gold);
 }
 
 .dict-trans {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-style: italic;
   color: var(--text-muted);
 }
 
 .dict-meaning {
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .dict-occurrences {
-  background-color: var(--bg-surface-alt);
-  border-radius: var(--radius-sm);
-  padding: 0.6rem 0.85rem;
-  border-left: 2px solid var(--accent-gold);
+  background: var(--glass-surface-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 0.95rem;
+  border-left: 3px solid var(--accent-gold);
+  border: 1px solid var(--glass-border-subtle);
+  border-left-width: 3px;
 }
 
 .occurrences-title {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--text-muted);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
 }
 
 .occurrence-item {
@@ -1236,27 +1651,29 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
-  padding: 0.2rem 0;
+  padding: 0.25rem 0;
 }
 
 .occurrence-link {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--accent-gold);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.25rem;
+  transition: var(--apple-spring-fast);
 }
 
 .occurrence-link:hover {
-  text-decoration: underline;
+  transform: translateX(3px);
+  color: var(--accent-gold-hover);
 }
 
 /* ==========================================================================
-   TAB 3: POETS DIRECTORY
+   TAB 3: POETS DIRECTORY (APPLE MUSIC ARTIST TILES)
    ========================================================================== */
 .poets-header, .favorites-header {
   margin-bottom: 2rem;
@@ -1264,79 +1681,95 @@ a {
 
 .section-title {
   font-family: var(--font-poetry);
-  font-size: 1.75rem;
+  font-size: 1.95rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 0.35rem;
 }
 
 .section-title span {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   color: var(--accent-gold);
   font-weight: 600;
 }
 
 .section-subtitle {
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   color: var(--text-secondary);
 }
 
 .poets-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.35rem;
 }
 
 .poet-card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: 1.4rem;
-  box-shadow: var(--shadow-sm);
+  background: var(--glass-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md), var(--glass-specular);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1rem;
-  transition: var(--transition);
+  gap: 1.15rem;
+  transition: var(--apple-spring);
   cursor: pointer;
 }
 
 .poet-card:hover {
+  transform: translateY(-4px);
   border-color: var(--accent-gold);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg), var(--glass-specular);
 }
 
 .poet-card-main {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.1rem;
 }
 
 .poet-card-avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: var(--radius-full);
-  background: linear-gradient(135deg, var(--accent-gold), #78350F);
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #FF9500 0%, #FF2D55 100%);
   color: #FFF;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-poetry);
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   font-weight: 700;
+  box-shadow: 0 4px 14px rgba(255, 45, 85, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.5);
   flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.poet-card-avatar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.35), transparent);
 }
 
 .poet-card-name h3 {
   font-family: var(--font-poetry);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--text-primary);
+  line-height: 1.2;
 }
 
 .poet-card-name p {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
 }
 
@@ -1344,62 +1777,71 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--border-light);
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--glass-border-subtle);
 }
 
 .poet-count-badge {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--text-secondary);
 }
 
 .poet-view-action {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--accent-gold);
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.3rem;
+  transition: var(--apple-spring-fast);
+}
+
+.poet-card:hover .poet-view-action {
+  transform: translateX(3px);
 }
 
 /* Empty State */
 .empty-state {
   text-align: center;
-  padding: 4rem 1.5rem;
-  background-color: var(--bg-card);
-  border: 1px dashed var(--border-color);
-  border-radius: var(--radius-lg);
+  padding: 4.5rem 2rem;
+  background: var(--glass-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px dashed var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
 }
 
 .empty-state-icon {
-  font-size: 2.5rem;
-  margin-bottom: 0.75rem;
+  font-size: 2.8rem;
+  margin-bottom: 0.85rem;
 }
 
 .empty-state-title {
   font-family: var(--font-poetry);
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.45rem;
 }
 
 .empty-state-desc {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
-  max-width: 460px;
-  margin: 0 auto 1.25rem;
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
 }
 
 /* ==========================================================================
-   MODAL & TOOLTIP STYLES
+   VISIONOS SPATIAL GLASS MODAL (ITTEFAQ / RANDOM COUPLENT VIEWER)
    ========================================================================== */
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
   z-index: 100;
   display: flex;
   align-items: center;
@@ -1407,7 +1849,7 @@ a {
   padding: 1.5rem;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .modal-backdrop.open {
@@ -1416,62 +1858,76 @@ a {
 }
 
 .modal-card {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  max-width: 620px;
+  background: var(--glass-surface-elevated);
+  backdrop-filter: var(--glass-blur-heavy);
+  -webkit-backdrop-filter: var(--glass-blur-heavy);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-2xl);
+  max-width: 640px;
   width: 100%;
-  padding: 2.25rem;
+  padding: 2.5rem;
   position: relative;
-  box-shadow: var(--shadow-lg);
-  transform: scale(0.95);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-modal), var(--glass-specular);
+  transform: scale(0.92) translateY(12px);
+  transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .modal-backdrop.open .modal-card {
-  transform: scale(1);
+  transform: scale(1) translateY(0);
 }
 
 .close-modal-btn {
   position: absolute;
-  top: 1rem;
+  top: 1.25rem;
   right: 1.25rem;
-  font-size: 1.6rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--glass-track);
   color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
   line-height: 1;
-  padding: 0.25rem 0.5rem;
+  transition: var(--apple-spring-fast);
 }
 
 .close-modal-btn:hover {
-  color: var(--text-primary);
+  background: var(--text-muted);
+  color: #FFF;
 }
 
 .modal-badge {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.76rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   color: var(--accent-gold);
-  margin-bottom: 1.25rem;
+  background: var(--badge-genre-bg);
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(var(--accent-gold), 0.2);
 }
 
 .modal-content {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
 }
 
 .modal-couplet {
   font-family: var(--font-poetry);
-  font-size: 1.35rem;
-  line-height: 2.1;
+  font-size: 1.5rem;
+  line-height: 2.2;
   color: var(--text-primary);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
 }
 
 .modal-poet-meta {
   font-family: var(--font-poetry);
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--accent-gold);
 }
@@ -1484,33 +1940,38 @@ a {
 }
 
 .modal-action-btn {
-  padding: 0.65rem 1.25rem;
-  border-radius: var(--radius-md);
-  font-size: 0.9rem;
+  padding: 0.75rem 1.45rem;
+  border-radius: var(--radius-full);
+  font-size: 0.92rem;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  transition: var(--transition);
+  gap: 0.5rem;
+  box-shadow: var(--shadow-sm), var(--glass-specular);
+  transition: var(--apple-spring);
 }
 
 .modal-action-btn.primary {
-  background-color: var(--accent-gold);
+  background: var(--accent-gradient);
   color: #FFF;
+  border: none;
+  box-shadow: 0 4px 18px var(--accent-glow), inset 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
 .modal-action-btn.primary:hover {
-  background-color: var(--accent-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px var(--accent-glow), inset 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
 .modal-action-btn.secondary {
-  background-color: var(--bg-surface-alt);
+  background: var(--glass-surface-subtle);
   color: var(--text-primary);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--glass-border);
 }
 
 .modal-action-btn.secondary:hover {
-  background-color: var(--bg-hover);
+  background: var(--glass-surface-hover);
+  transform: translateY(-2px);
 }
 
 .modal-action-btn svg {
@@ -1518,18 +1979,33 @@ a {
   height: 16px;
 }
 
-/* Word Tooltip */
+/* ==========================================================================
+   VISIONOS SPATIAL WORD TOOLTIP POPOVER
+   ========================================================================== */
 .word-tooltip {
   position: fixed;
-  z-index: 90;
-  background-color: var(--bg-surface);
-  border: 1px solid var(--accent-gold);
-  border-radius: var(--radius-md);
-  padding: 0.85rem 1rem;
+  z-index: 95;
+  background: var(--glass-surface-elevated);
+  backdrop-filter: var(--glass-blur-heavy);
+  -webkit-backdrop-filter: var(--glass-blur-heavy);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
   max-width: 320px;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-lg), var(--glass-specular);
   pointer-events: auto;
-  animation: fadeIn 0.18s ease;
+  animation: applePopoverIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes applePopoverIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .tooltip-header {
@@ -1537,119 +2013,141 @@ a {
   align-items: baseline;
   justify-content: space-between;
   gap: 0.5rem;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
 }
 
 .tooltip-word {
   font-family: var(--font-poetry);
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--accent-gold);
 }
 
 .tooltip-trans {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-style: italic;
   color: var(--text-muted);
 }
 
 .tooltip-meaning {
-  font-size: 0.86rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  line-height: 1.5;
-  margin-bottom: 0.55rem;
+  line-height: 1.55;
+  margin-bottom: 0.65rem;
 }
 
 .tooltip-dict-btn {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--accent-gold);
   display: inline-flex;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.25rem;
   cursor: pointer;
+  transition: var(--apple-spring-fast);
 }
 
 .tooltip-dict-btn:hover {
-  text-decoration: underline;
+  transform: translateX(2px);
+  color: var(--accent-gold-hover);
 }
 
-/* Toast Notification */
+/* ==========================================================================
+   DYNAMIC ISLAND / HUD TOAST NOTIFICATION
+   ========================================================================== */
 .toast-notification {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background-color: var(--text-primary);
-  color: var(--bg-body);
-  padding: 0.7rem 1.25rem;
-  border-radius: var(--radius-md);
-  font-size: 0.88rem;
+  bottom: 2.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px) scale(0.92);
+  background: var(--glass-surface-elevated);
+  backdrop-filter: var(--glass-blur-heavy);
+  -webkit-backdrop-filter: var(--glass-blur-heavy);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
   font-weight: 600;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-lg), var(--glass-specular);
   z-index: 120;
   opacity: 0;
-  transform: translateY(12px);
-  transition: var(--transition);
+  transition: var(--apple-spring);
   pointer-events: none;
+  white-space: nowrap;
 }
 
 .toast-notification.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0) scale(1);
 }
 
-/* --- Footer --- */
+/* ==========================================================================
+   FLOATING GLASS FOOTER
+   ========================================================================== */
 .site-footer {
-  background-color: var(--bg-surface);
-  border-top: 1px solid var(--border-color);
-  padding: 2.25rem 1.5rem;
+  background: var(--glass-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-top: 1px solid var(--glass-border);
+  padding: 2.5rem 1.5rem;
   margin-top: auto;
+  position: relative;
+  z-index: 10;
 }
 
 .footer-container {
-  max-width: 1200px;
+  max-width: 1220px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 .footer-brand h3 {
   font-family: var(--font-poetry);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.3rem;
 }
 
 .footer-brand p {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
-  max-width: 480px;
+  max-width: 500px;
 }
 
 .footer-meta {
   text-align: right;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
 }
 
 .footer-copy {
-  font-size: 0.75rem;
-  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  margin-top: 0.35rem;
   color: var(--text-faint);
 }
 
-/* --- Responsive Media Queries --- */
+/* ==========================================================================
+   RESPONSIVE DESIGN (IPHONE & IPAD BREAKPOINTS)
+   ========================================================================== */
 @media (max-width: 768px) {
+  .site-header {
+    width: calc(100% - 1.25rem);
+    margin: 0.65rem auto 0;
+    border-radius: var(--radius-lg);
+  }
+
   .header-container {
     padding: 0.75rem 1rem;
   }
   
   .brand-title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   
   .brand-subtitle {
@@ -1660,13 +2158,23 @@ a {
   .theme-name {
     display: none;
   }
+
+  .search-kbd-shortcut {
+    display: none;
+  }
+
+  .search-input {
+    padding-right: 2.8rem;
+  }
   
   .main-content {
-    padding: 1.25rem 1rem 3rem;
+    width: calc(100% - 1.25rem);
+    padding: 0 0 3rem;
   }
   
   .filter-panel {
-    padding: 1rem;
+    padding: 1.1rem;
+    border-radius: var(--radius-lg);
   }
   
   .search-row {
@@ -1679,24 +2187,29 @@ a {
   }
   
   .card-part-about {
-    padding: 1.1rem 1.2rem;
+    padding: 1.2rem 1.3rem;
   }
   
   .card-part-verses {
-    padding: 1.5rem 1.2rem;
+    padding: 1.6rem 1.3rem;
   }
 
   .verses-watermark {
-    font-size: 3.5rem;
+    font-size: 4rem;
     right: 1rem;
   }
   
   .card-part-words {
-    padding: 1.1rem 1.2rem;
+    padding: 1.2rem 1.3rem;
   }
   
   .words-grid {
     grid-template-columns: 1fr;
+  }
+
+  .modal-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: var(--radius-xl);
   }
 
   .footer-container {
