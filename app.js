@@ -404,12 +404,10 @@
     `;
 
     // --- ZONE 3: INLINE SLEEK VOCABULARY RIBBON ---
-    const previewWords = poem.words.slice(0, 6);
+    const previewWords = poem.words.slice(0, 8);
     const previewPillsHtml = previewWords.map(w => `
-      <button class="vocab-pill-btn" data-word="${escapeHtml(w.word)}" data-trans="${escapeHtml(w.transliteration)}" data-meaning="${escapeHtml(w.meaning)}" title="अर्थ देखें">
+      <button class="vocab-pill-btn" data-word="${escapeHtml(w.word)}" data-trans="${escapeHtml(w.transliteration)}" data-meaning="${escapeHtml(w.meaning)}" title="${escapeHtml(w.meaning)} (अर्थ देखें)">
         <span class="vp-term">${escapeHtml(w.word)}</span>
-        <span class="vp-sep">:</span>
-        <span class="vp-def">${escapeHtml(w.meaning)}</span>
       </button>
     `).join('');
 
